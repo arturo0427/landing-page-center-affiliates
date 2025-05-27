@@ -1,0 +1,55 @@
+<div
+  class="main-banner"
+  style="background-image: url('/assets/images/home.jpg')"
+>
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="container">
+        <div #mainBaner class="main-banner-text">
+          <!-- <h4>BIENVENIDO A SORTI</h4> -->
+          <h1>{{ "HOME.WELCOME_TO" | translate }} <span>SORTI</span></h1>
+          <p>
+            {{ "HOME.DESCRIPTION" | translate }}
+          </p>
+          <a (click)="onClick('about')" class="btn btn-primary">
+            {{ "HOME.BTN_PLAYER" | translate }}</a
+          >
+          <a (click)="onClick('work')" class="btn btn-primary view-work">
+            {{ "HOME.BTN_AGENT" | translate }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg
+    class="waves"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28"
+    preserveAspectRatio="none"
+    shape-rendering="auto"
+  >
+    <defs>
+      <path
+        id="gentle-wave"
+        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+      />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,195,47,0.7)" />
+      <use
+        xlink:href="#gentle-wave"
+        x="48"
+        y="3"
+        fill="rgba(0, 195, 47, 0.4)"
+      />
+      <use
+        xlink:href="#gentle-wave"
+        x="48"
+        y="5"
+        fill="rgba(0, 195, 47, 0.2)"
+      />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0, 195, 47)" />
+    </g>
+  </svg>
+</div>

@@ -1,0 +1,13 @@
+{
+  "MENU": {
+    "HOME": "Home",
+    "PLAYER": "Player",
+    "BENEFITS": "Benefits"
+  },
+  "HOME": {
+    "WELCOME_TO": "Welcome to",
+    "DESCRIPTION": "Join the emotion! Register on Sorti. Discover a world of emotions and unlimited winnings, receive welcome bonuses and start winning today.",
+    "BTN_PLAYER": "I want to be a Player",
+    "BTN_AGENT": "I want to be an Agent"
+  }
+}

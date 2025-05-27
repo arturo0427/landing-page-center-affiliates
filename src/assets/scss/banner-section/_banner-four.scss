@@ -1,0 +1,192 @@
+.main-banner {
+	height: 850px;
+    overflow: hidden;
+	position: relative;
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+    &::before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        content: '';
+        height: 100%;
+        opacity: .58;
+        position: absolute;
+        background: var(--blackColor);
+    }
+}
+.main-banner-text {
+    position: relative;
+    z-index: 1;
+
+    h4 {
+        color: var(--whiteColor);
+        font: {
+            weight: 400;
+            size: 20px;
+        };
+    }
+    h1 {
+        color: var(--whiteColor);
+        margin: {
+            top: 30px;
+            bottom: 30px;
+        };
+        font: {
+            weight: 400;
+            size: 55px;
+        };
+        span {
+            color: #ff2c57;
+            font-weight: 600;
+        }
+    }
+    p {
+        color: var(--whiteColor);
+        margin-bottom: 30px;
+        font-size: 15.5px;
+        max-width: 650px;
+    }
+    .btn {
+        margin-right: 14px;
+
+        &:hover, &:focus {
+            border-color: var(--whiteColor);
+        }
+    }
+    .view-work {
+        background: transparent;
+        border-color: var(--whiteColor);
+
+        &:hover, &:focus {
+            border-color: var(--mainColor);
+            background: var(--mainColor);
+            color: var(--whiteColor);
+        }
+    }
+}
+.waves {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    position: absolute;
+}
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+
+    &:nth-child(1) {
+        animation: {
+            delay: -2s;
+            duration: 7s;
+        };
+    }
+    &:nth-child(2) {
+        animation: {
+            delay: -3s;
+            duration: 10s;
+        };
+    }
+    &:nth-child(3) {
+        animation: {
+            delay: -4s;
+            duration: 13s;
+        };
+    }
+    &:nth-child(4) {
+        animation: {
+            delay: -5s;
+            duration: 20s;
+        };
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .main-banner {
+        height: auto;
+        padding: {
+            top: 175px;
+            bottom: 120px;
+        };
+    }
+    .main-banner-text {
+        h4 {
+            font-size: 15px;
+        }
+        h1 {
+            font-size: 30px;
+            line-height: 40px;
+            margin: {
+                top: 15px;
+                bottom: 15px;
+            };
+        }
+        p {
+            font-size: 14px;
+            max-width: 100%;
+        }
+        .btn {
+            margin-right: 8px;
+        }
+    }
+    .waves {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .main-banner {
+        height: auto;
+        padding: {
+            top: 175px;
+            bottom: 120px;
+        };
+    }
+    .main-banner-text {
+        h4 {
+            font-size: 17px;
+        }
+        h1 {
+            font-size: 40px;
+            margin: {
+                bottom: 20px;
+                top: 25px;
+            };
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .main-banner-text {
+        margin-top: 30px;
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .main-banner {
+        height: 100vh;
+    }
+
+}

@@ -1,0 +1,444 @@
+.main-banner {
+	height: 850px;
+    overflow: hidden;
+	position: relative;
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+    &::before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        content: '';
+        height: 100%;
+        opacity: .58;
+        position: absolute;
+        background: var(--blackColor);
+    }
+    #particle-container {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .particle {
+        border-radius: 50%;
+        position: absolute;
+        
+        &:nth-child(1) {
+            width: 6px;
+            height: 6px;
+            opacity: 0.82;
+            background: #d95926;
+            animation-delay: -0.2s;
+            transform: translate3d(9vw, 19vh, 33px);
+            animation: particle-animation-1 30s infinite;
+        }
+        &:nth-child(2) {
+            width: 10px;
+            height: 10px;
+            opacity: 0.06;
+            background: #7426d9;
+            animation-delay: -0.4s;
+            transform: translate3d(8vw, 18vh, 92px);
+            animation: particle-animation-2 30s infinite;
+        }
+        &:nth-child(3) {
+            width: 10px;
+            height: 10px;
+            opacity: 0.02;
+            background: #263ed9;
+            animation-delay: -0.6s;
+            transform: translate3d(27vw, 6vh, 90px);
+            animation: particle-animation-3 30s infinite;
+        }
+        &:nth-child(4) {
+            width: 8px;
+            height: 8px;
+            opacity: 0.1;
+            background: #26d982;
+            animation-delay: -0.8s;
+            transform: translate3d(64vw, 85vh, 88px);
+            animation: particle-animation-4 30s infinite;
+        }
+        &:nth-child(5) {
+            width: 7px;
+            height: 7px;
+            opacity: 0.32;
+            animation-delay: -1s;
+            background: #d95326;
+            transform: translate3d(81vw, 62vh, 51px);
+            animation: particle-animation-5 30s infinite;
+        }
+        &:nth-child(6) {
+            width: 10px;
+            height: 10px;
+            opacity: 0.85;
+            background: #4ad926;
+            animation-delay: -1.2s;
+            transform: translate3d(30vw, 2vh, 97px);
+            animation: particle-animation-6 30s infinite;
+        }
+        &:nth-child(7) {
+            width: 7px;
+            height: 7px;
+            opacity: 0.89;
+            background: #a6d926;
+            animation-delay: -1.4s;
+            transform: translate3d(42vw, 31vh, 46px);
+            animation: particle-animation-7 30s infinite;
+        }
+        &:nth-child(8) {
+            width: 8px;
+            height: 8px;
+            opacity: 0.5;
+            background: #2650d9;
+            animation-delay: -1.6s;
+            transform: translate3d(5vw, 41vh, 95px);
+            animation: particle-animation-8 30s infinite;
+        }
+        &:nth-child(9) {
+            width: 9px;
+            height: 9px;
+            opacity: 0.02;
+            background: #ac26d9;
+            animation-delay: -1.8s;
+            transform: translate3d(37vw, 20vh, 33px);
+            animation: particle-animation-9 30s infinite;
+        }
+        &:nth-child(10) {
+            width: 9px;
+            height: 9px;
+            opacity: 0.07;
+            animation-delay: -2s;
+            background: #ca26d9;
+            transform: translate3d(50vw, 25vh, 60px);
+            animation: particle-animation-10 30s infinite;
+        }
+        &:nth-child(11) {
+            width: 10px;
+            height: 10px;
+            opacity: 0.75;
+            background: #d92638;
+            animation-delay: -2.2s;
+            transform: translate3d(65vw, 66vh, 33px);
+            animation: particle-animation-11 30s infinite;
+        }
+        &:nth-child(12) {
+            animation: particle-animation-12 30s infinite;
+            transform: translate3d(25vw, 73vh, 92px);
+            animation-delay: -2.4s;
+            background: #d93b26;
+            opacity: 0.87;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(13) {
+            animation: particle-animation-13 30s infinite;
+            transform: translate3d(46vw, 50vh, 85px);
+            animation-delay: -2.6s;
+            background: #26d938;
+            opacity: 0.5;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(14) {
+            animation: particle-animation-14 30s infinite;
+            transform: translate3d(14vw, 46vh, 41px);
+            animation-delay: -2.8s;
+            background: #d92626;
+            opacity: 0.86;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(15) {
+            animation: particle-animation-15 30s infinite;
+            transform: translate3d(70vw, 28vh, 65px);
+            background: #3bd926;
+            animation-delay: -3s;
+            opacity: 0.87;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(16) {
+            animation: particle-animation-16 30s infinite;
+            transform: translate3d(66vw, 42vh, 23px);
+            animation-delay: -3.2s;
+            background: #26a9d9;
+            opacity: 0.22;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(17) {
+            animation: particle-animation-17 30s infinite;
+            transform: translate3d(43vw, 84vh, 39px);
+            animation-delay: -3.4s;
+            background: #26d98e;
+            opacity: 0.06;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(18) {
+            animation: particle-animation-18 30s infinite;
+            transform: translate3d(58vw, 39vh, 72px);
+            animation-delay: -3.6s;
+            background: #3b26d9;
+            opacity: 0.7;
+            height: 9px;
+            width: 9px;
+        }
+        &:nth-child(19) {
+            animation: particle-animation-19 30s infinite;
+            transform: translate3d(7vw, 5vh, 38px);
+            animation-delay: -3.8s;
+            background: #26d96e;
+            opacity: 0.63;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(20) {
+            animation: particle-animation-20 30s infinite;
+            transform: translate3d(76vw, 70vh, 92px);
+            background: #d98826;
+            animation-delay: -4s;
+            opacity: 0.71;
+            height: 7px;
+            width: 7px;
+        }
+        &:nth-child(21) {
+            animation: particle-animation-21 30s infinite;
+            transform: translate3d(28vw, 79vh, 97px);
+            animation-delay: -4.2s;
+            background: #26d96e;
+            opacity: 0.87;
+            height: 7px;
+            width: 7px;
+        }
+        &:nth-child(22) {
+            animation: particle-animation-22 30s infinite;
+            transform: translate3d(17vw, 39vh, 31px);
+            animation-delay: -4.4s;
+            background: #be26d9;
+            opacity: 0.73;
+            height: 7px;
+            width: 7px;
+        }
+        &:nth-child(23) {
+            animation: particle-animation-23 30s infinite;
+            transform: translate3d(78vw, 71vh, 13px);
+            animation-delay: -4.6s;
+            background: #d9a926;
+            opacity: 0.01;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(24) {
+            animation: particle-animation-24 30s infinite;
+            transform: translate3d(20vw, 57vh, 38px);
+            animation-delay: -4.8s;
+            background: #38d926;
+            opacity: 0.19;
+            height: 7px;
+            width: 7px;
+        }
+        &:nth-child(25) {
+            animation: particle-animation-25 30s infinite;
+            transform: translate3d(2vw, 60vh, 2px);
+            background: #26d9c4;
+            animation-delay: -5s;
+            opacity: 0.32;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(26) {
+            animation: particle-animation-26 30s infinite;
+            transform: translate3d(52vw, 77vh, 23px);
+            animation-delay: -5.2s;
+            background: #26cad9;
+            opacity: 0.62;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(27) {
+            animation: particle-animation-27 30s infinite;
+            transform: translate3d(21vw, 64vh, 72px);
+            animation-delay: -5.4s;
+            background: #53d926;
+            opacity: 0.93;
+            height: 8px;
+            width: 8px;
+        }
+        &:nth-child(28) {
+            animation: particle-animation-28 30s infinite;
+            transform: translate3d(8vw, 51vh, 46px);
+            animation-delay: -5.6s;
+            background: #268bd9;
+            opacity: 0.16;
+            height: 6px;
+            width: 6px;
+        }
+        &:nth-child(29) {
+            animation: particle-animation-29 30s infinite;
+            transform: translate3d(88vw, 9vh, 90px);
+            animation-delay: -5.8s;
+            background: #d926d9;
+            opacity: 0.64;
+            height: 10px;
+            width: 10px;
+        }
+        &:nth-child(30) {
+            animation: particle-animation-30 30s infinite;
+            transform: translate3d(63vw, 55vh, 16px);
+            background: #2cd926;
+            animation-delay: -6s;
+            opacity: 0.48;
+            height: 9px;
+            width: 9px;
+        }
+    }
+}
+.main-banner-text {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+
+    h4 {
+        color: var(--whiteColor);
+        font: {
+            weight: 400;
+            size: 20px;
+        };
+    }
+    h1 {
+        color: var(--whiteColor);
+        margin: {
+            top: 30px;
+            bottom: 30px;
+        };
+        font: {
+            weight: 400;
+            size: 55px;
+        };
+        span {
+            color: #ff2c57;
+            font-weight: 600;
+        }
+    }
+    p {
+        color: var(--whiteColor);
+        font-size: 15.5px;
+        max-width: 650px;
+        margin: {
+            left: auto;
+            right: auto;
+            bottom: 30px;
+        };
+    }
+    .btn {
+        margin: {
+            left: 7px;
+            right: 7px;
+        };
+        &:hover, &:focus {
+            border-color: var(--whiteColor);
+        }
+    }
+    .view-work {
+        background: transparent;
+        border-color: var(--whiteColor);
+
+        &:hover, &:focus {
+            border-color: var(--mainColor);
+            background: var(--mainColor);
+            color: var(--whiteColor);
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .main-banner {
+        height: auto;
+        padding: {
+            top: 175px;
+            bottom: 120px;
+        };
+    }
+    .main-banner-text {
+        h4 {
+            font-size: 15px;
+        }
+        h1 {
+            font-size: 30px;
+            line-height: 40px;
+            margin: {
+                top: 15px;
+                bottom: 15px;
+            };
+        }
+        p {
+            font-size: 14px;
+            max-width: 100%;
+        }
+        .btn {
+            margin: {
+                left: 4px;
+                right: 4px;
+            };
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .main-banner {
+        height: auto;
+        padding: {
+            top: 175px;
+            bottom: 120px;
+        };
+    }
+    .main-banner-text {
+        h4 {
+            font-size: 17px;
+        }
+        h1 {
+            font-size: 40px;
+            margin: {
+                bottom: 20px;
+                top: 25px;
+            };
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .main-banner-text {
+        margin-top: 30px;
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .main-banner {
+        height: 100vh;
+    }
+
+}

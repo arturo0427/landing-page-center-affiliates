@@ -1,0 +1,102 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light"
+  [ngClass]="{ sticky: isSticky }"
+  [class.active]="classApplied"
+>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"> <span>S</span>ORTI </a>
+    <button class="navbar-toggler" type="button" (click)="toggleClass()">
+      <span class="burger-menu">
+        <span class="top-bar"></span>
+        <span class="middle-bar"></span>
+        <span class="bottom-bar"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        @for(section of NAVBAR_SECTIONS; track $index){
+        <li class="nav-item d-flex align-items-center">
+          <span class="nav-link" (click)="onClick(section.id)">
+            {{ "MENU." + section.label | translate }}
+          </span>
+        </li>
+        }
+        <li class="nav-item d-inline-block">
+          <div class="dropdown language-box" ngbDropdown>
+            <button
+              class="btn dropdown-toggle language-selector"
+              type="button"
+              ngbDropdownToggle
+            >
+              <img
+                [src]="
+                  '/assets/images/flags/' +
+                  (LANGUAGE_TO_FLAG_MAP[translate.currentLang] || 'us') +
+                  '.svg'
+                "
+                alt="language-flag"
+                class="me-2"
+                height="18"
+              />
+            </button>
+
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+              @for (item of LANGUAGES_LIST; track item) {
+              <button
+                ngbDropdownItem
+                class="dropdown-item d-flex align-items-center"
+                (click)="changeLanguage(item)"
+              >
+                <img [src]="item.flag" alt="flag" class="me-2" height="18" />
+                <span>{{ item.name }}</span>
+              </button>
+              }
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto for-responsive">
+        @for(section of NAVBAR_SECTIONS; track $index){
+        <li class="nav-item">
+          <span class="nav-link" (click)="onClick(section.id)">
+            {{ "MENU." + section.label | translate }}</span
+          >
+        </li>
+        }
+        <li class="nav-item">
+          <div class="dropdown language-box d-inline-block" ngbDropdown>
+            <button
+              class="btn dropdown-toggle language-selector"
+              type="button"
+              ngbDropdownToggle
+            >
+              <img
+                [src]="
+                  '/assets/images/flags/' +
+                  (LANGUAGE_TO_FLAG_MAP[translate.currentLang] || 'us') +
+                  '.svg'
+                "
+                alt="language-flag"
+                class="me-2"
+                height="18"
+              />
+            </button>
+
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+              @for (item of LANGUAGES_LIST; track item) {
+              <button
+                ngbDropdownItem
+                class="dropdown-item d-flex align-items-center"
+                (click)="changeLanguage(item)"
+              >
+                <img [src]="item.flag" alt="flag" class="me-2" height="18" />
+                <span>{{ item.name }}</span>
+              </button>
+              }
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

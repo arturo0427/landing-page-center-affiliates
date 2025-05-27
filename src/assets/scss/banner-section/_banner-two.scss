@@ -1,0 +1,253 @@
+.main-banner {
+  height: 850px;
+  overflow: hidden;
+  position: relative;
+  background: {
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  &::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    height: 100%;
+    opacity: 0.58;
+    position: absolute;
+    background: var(--blackColor);
+  }
+}
+.main-banner-text {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+
+  h4 {
+    color: var(--whiteColor);
+    font: {
+      weight: 400;
+      size: 20px;
+    }
+  }
+  h1 {
+    color: var(--whiteColor);
+    margin: {
+      top: 30px;
+      bottom: 30px;
+    }
+    font: {
+      weight: 400;
+      size: 55px;
+    }
+    span {
+      color: #ff2c57;
+      font-weight: 600;
+    }
+  }
+  p {
+    color: var(--whiteColor);
+    font-size: 15.5px;
+    max-width: 650px;
+    margin: {
+      left: auto;
+      right: auto;
+      bottom: 30px;
+    }
+  }
+  .btn {
+    margin: {
+      left: 7px;
+      right: 7px;
+    }
+    &:hover,
+    &:focus {
+      border-color: var(--whiteColor);
+    }
+  }
+  .view-work {
+    background: transparent;
+    border-color: var(--whiteColor);
+
+    &:hover,
+    &:focus {
+      border-color: var(--mainColor);
+      background: var(--mainColor);
+      color: var(--whiteColor);
+    }
+  }
+}
+::ng-deep {
+  .home-slides {
+    .owl-theme {
+      .owl-nav {
+        opacity: 0;
+        margin-top: 0;
+        visibility: hidden;
+        transition: var(--transition);
+
+        [class*="owl-"] {
+          top: 50%;
+          margin: 0;
+          left: 40px;
+          padding: 0;
+          width: 55px;
+          height: 55px;
+          font-size: 25px;
+          line-height: 58px;
+          position: absolute;
+          border-radius: 50%;
+          text-align: center;
+          color: var(--whiteColor);
+          transform: translateY(-50%);
+          transition: var(--transition);
+          background: rgba(255, 255, 255, 0.33);
+
+          &.owl-next {
+            left: auto;
+            right: 40px;
+          }
+          &:hover {
+            background: var(--mainColor);
+            color: var(--whiteColor);
+          }
+        }
+      }
+      &:hover {
+        .owl-nav {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .main-banner {
+    height: auto;
+    padding: {
+      top: 175px;
+      bottom: 150px;
+    }
+  }
+  .main-banner-text {
+    h4 {
+      font-size: 15px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 40px;
+      margin: {
+        top: 15px;
+        bottom: 15px;
+      }
+    }
+    p {
+      font-size: 14px;
+      max-width: 100%;
+    }
+    .btn {
+      margin: {
+        left: 4px;
+        right: 4px;
+      }
+    }
+  }
+  ::ng-deep {
+    .home-slides {
+      .owl-theme {
+        .owl-nav {
+          opacity: 1;
+          visibility: visible;
+
+          [class*="owl-"] {
+            top: auto;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            bottom: 15px;
+            font-size: 20px;
+            transform: unset;
+            line-height: 43px;
+
+            &.owl-next {
+              left: auto;
+              right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main-banner {
+    height: auto;
+    padding: {
+      top: 175px;
+      bottom: 160px;
+    }
+  }
+  .main-banner-text {
+    h4 {
+      font-size: 17px;
+    }
+    h1 {
+      font-size: 40px;
+      margin: {
+        bottom: 20px;
+        top: 25px;
+      }
+    }
+  }
+  .home-slides {
+    .owl-theme {
+      .owl-nav {
+        opacity: 1;
+        visibility: visible;
+
+        [class*="owl-"] {
+          top: auto;
+          left: 30px;
+          width: 50px;
+          bottom: 30px;
+          height: 50px;
+          font-size: 23px;
+          line-height: 52px;
+          transform: translateY(0);
+
+          &.owl-next {
+            left: auto;
+            right: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-banner-text {
+    margin-top: 30px;
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+  .main-banner {
+    height: 100vh;
+  }
+}

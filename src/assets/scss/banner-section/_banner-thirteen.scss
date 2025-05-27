@@ -1,0 +1,145 @@
+.main-banner {
+  z-index: 1;
+  height: 850px;
+  overflow: hidden;
+  position: relative;
+  background: #63d0ff;
+}
+.main-banner-text {
+  h4 {
+    font: {
+      weight: 400;
+      size: 20px;
+    }
+  }
+  h1 {
+    margin: {
+      top: 30px;
+      bottom: 30px;
+    }
+    font: {
+      weight: 400;
+      size: 55px;
+    }
+    span {
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+  p {
+    color: var(--blackColor);
+    margin-bottom: 30px;
+    font-size: 15.5px;
+    max-width: 650px;
+  }
+}
+#wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  #clouds {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 190px;
+    min-height: 190px;
+    position: absolute;
+    transform: translate3d(0, 0, 0.01);
+    background: url("../../../../public/images/clouds.png") repeat-x 0 bottom
+      var(--mainColor);
+  }
+  #ground {
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 192px;
+    min-height: 192px;
+    position: absolute;
+    will-change: transform;
+    border: 0 none transparent;
+    outline: 0 none transparent;
+    transform: translate3d(0, 0, 0.01);
+    background: url("../../../../public/images/grass-tile.png") repeat-x 0 0
+      transparent;
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .main-banner {
+    height: auto;
+    padding: {
+      top: 175px;
+      bottom: 120px;
+    }
+  }
+  .main-banner-text {
+    h4 {
+      font-size: 15px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 40px;
+      margin: {
+        top: 15px;
+        bottom: 15px;
+      }
+    }
+    p {
+      font-size: 14px;
+      max-width: 100%;
+    }
+  }
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main-banner {
+    height: auto;
+    padding: {
+      top: 175px;
+      bottom: 120px;
+    }
+  }
+  .main-banner-text {
+    h4 {
+      font-size: 17px;
+    }
+    h1 {
+      font-size: 40px;
+      margin: {
+        bottom: 20px;
+        top: 25px;
+      }
+    }
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-banner-text {
+    margin-top: 30px;
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+  .main-banner {
+    height: 100vh;
+  }
+}
