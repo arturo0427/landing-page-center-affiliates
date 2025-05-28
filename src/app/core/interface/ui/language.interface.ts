@@ -1,4 +1,4 @@
-import { AVAILABLE_LANGUAGES } from '@core/helpers/ui/constants';
+import { AVAILABLE_LANGUAGES } from '@core/helpers/ui/ui.constants';
 
 export type LanguageCode =
   (typeof AVAILABLE_LANGUAGES)[keyof typeof AVAILABLE_LANGUAGES];

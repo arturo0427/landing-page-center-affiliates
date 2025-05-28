@@ -6,7 +6,7 @@ import {
   inject,
   ViewChild,
 } from '@angular/core';
-import { AnimationService } from '@core/services/animation.service';
+import { AnimationService } from '@core/services/ui/animation.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

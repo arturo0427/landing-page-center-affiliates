@@ -6,7 +6,7 @@ import {
   LANGUAGES,
   LanguageType,
   NAVBAR_SECTIONS,
-} from '@core/helpers/ui/constants';
+} from '@core/helpers/ui/ui.constants';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
