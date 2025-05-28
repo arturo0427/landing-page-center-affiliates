@@ -16,4 +16,4 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## BANNERS
 
-If you want to use another banner remember to uncomment the @import of the selected banner in app.scss
+If you want to use another banner remember to uncomment the @import of the selected banner in app.scss 🚀
