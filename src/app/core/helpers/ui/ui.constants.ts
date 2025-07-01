@@ -60,3 +60,60 @@ export const DEFAULT_INDIVIDUAL_TOASTR_CONFIG: Partial<IndividualConfig<any>> =
     easing: 'ease-in-out',
     progressAnimation: 'decreasing',
   };
+
+export const BENEFITS = [
+  {
+    id: '1',
+    title: 'EXCLUSIVE_BONUSES',
+    description: '',
+    image: '/assets/images/icons/bonosexclusivos.png',
+  },
+  {
+    id: '2',
+    title: 'HIGH_PROBABILITY',
+    description: '',
+    image: '/assets/images/icons/diamont.png',
+  },
+  {
+    id: '3',
+    title: 'PROGRAMS',
+    description: '',
+    image: '/assets/images/icons/programasderecomendaciones.png',
+  },
+  {
+    id: '4',
+    title: 'CUSTOMER_SERVICE',
+    description: '',
+    image: '/assets/images/icons/call-center.png',
+  },
+  {
+    id: '5',
+    title: 'IMMEDIATE_RECHARGES',
+    description: '',
+    image: '/assets/images/icons/recargasinmediatas.png',
+  },
+  {
+    id: '6',
+    title: 'INSTANT_PAYMENTS',
+    description: '',
+    image: '/assets/images/icons/pagosalinstante.png',
+  },
+  {
+    id: '7',
+    title: 'BEST_ODDS',
+    description: '',
+    image: '/assets/images/icons/mejorescuotas.png',
+  },
+  {
+    id: '8',
+    title: 'CASHOUT',
+    description: '',
+    image: '/assets/images/icons/cashout.png',
+  },
+  {
+    id: '9',
+    title: 'SPECIAL_OFFERS',
+    description: '',
+    image: '/assets/images/icons/promocionesespeciales.png',
+  },
+];

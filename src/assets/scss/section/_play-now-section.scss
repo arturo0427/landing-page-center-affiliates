@@ -1,0 +1,55 @@
+// .play-now {
+//   height: 75vh;
+//   position: relative;
+// }
+
+// .three-dice {
+//   height: 75vh;
+// }
+
+// .play-now-content {
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   z-index: 2;
+//   text-align: center;
+//   background-color: transparent !important;
+// }
+
+.play-now {
+  height: 75vh;
+  overflow: hidden;
+}
+
+.three-dice {
+  pointer-events: auto; /* Este recibe los clics del raycaster */
+}
+
+.play-now-content {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  max-width: 400px;
+  z-index: 2;
+
+  .section-title {
+    font-size: 40px;
+  }
+}
+
+.card {
+  height: 300px;
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(100px);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.play-now-description {
+  color: white;
+  padding: 10px 0;
+}

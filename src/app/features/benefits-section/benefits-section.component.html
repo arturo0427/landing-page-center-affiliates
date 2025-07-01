@@ -1,1 +1,28 @@
-<p>benefits-section works!</p>
+<div class="who-we-are-area pt-100 pb-75" id="benefits">
+  <div class="container">
+    <div class="section-title">
+      <h4>{{ "BENEFITS.WELCOME" | translate }}</h4>
+      <h2>{{ "BENEFITS.TITLE" | translate }}</h2>
+      <p>
+        {{ "BENEFITS.DESCRIPTION" | translate }}
+      </p>
+    </div>
+    <div class="row">
+      @for(item of BENEFITS; track $index) {
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="single-who-we-are">
+          <img [src]="item.image" alt="" />
+          <h3>{{ "BENEFITS." + item.title | translate }}</h3>
+
+          <span>{{ item.id }}</span>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="row text-center">
+      <p>
+        {{ "BENEFITS.EXPERIENCE" | translate }}
+      </p>
+    </div>
+  </div>
+</div>

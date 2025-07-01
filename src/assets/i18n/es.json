@@ -9,5 +9,23 @@
     "DESCRIPTION": "¡Únete a la emoción! Regístrate en Sorti. Descubre un mundo de emociones y ganancias sin fin, recibe bonos de bienvenida y comienza a ganar hoy.",
     "BTN_PLAYER": "Quiero ser Jugador",
     "BTN_AGENT": "Quiero ser Agente"
+  },
+  "PLAYER": {
+    "TITLE": "Jugador"
+  },
+  "BENEFITS": {
+    "TITLE": "Beneficios",
+    "WELCOME": "¡Únete a la emoción!",
+    "DESCRIPTION": "Como nuestro afiliado, disfruta de beneficios constantes para aprovecha al máximo tus apuestas",
+    "EXPERIENCE": "Queremos que nuestros afiliados cuenten con una experiencia gratificante que otras casas de pronósticos no pueden brindar",
+    "EXCLUSIVE_BONUSES": "Bonos exclusivos",
+    "HIGH_PROBABILITY": "Altas probabilidades de ganar en cada jugada",
+    "PROGRAMS": "Programas de Recomendación",
+    "CUSTOMER_SERVICE": "Atención al Cliente Personalizada",
+    "IMMEDIATE_RECHARGES": "Recargas inmediatas",
+    "INSTANT_PAYMENTS": "Pagos al instante",
+    "BEST_ODDS": "Mejores Cuotas",
+    "CASHOUT": "Cashout",
+    "SPECIAL_OFFERS": "Promociones Especiales"
   }
 }
