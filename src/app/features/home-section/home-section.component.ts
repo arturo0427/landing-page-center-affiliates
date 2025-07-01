@@ -83,10 +83,10 @@ export class HomeSectionComponent implements AfterViewInit {
     // const helper = new THREE.DirectionalLightHelper(directionalLight, 5);
     // this.scene.add(helper);
 
-    const size = 5;
-    const divisions = 15;
-    const gridHelper = new THREE.GridHelper(size, divisions);
-    this.scene.add(gridHelper);
+    // const size = 5;
+    // const divisions = 15;
+    // const gridHelper = new THREE.GridHelper(size, divisions);
+    // this.scene.add(gridHelper);
 
     // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -108,7 +108,7 @@ export class HomeSectionComponent implements AfterViewInit {
         box.getCenter(center);
 
         this.model3D.position.sub(center);
-        this.model3D.position.z = 1;
+        this.model3D.position.z = 1.5;
 
         const directionalLight = this.scene.getObjectByProperty(
           'type',
@@ -128,7 +128,7 @@ export class HomeSectionComponent implements AfterViewInit {
     // this.controls.update();
 
     if (this.model3D) {
-      const x = Math.sin(elapsedTime * 0.5) * 2.5;
+      const x = Math.sin(elapsedTime * 0.5) * 2;
       const y = Math.abs(Math.sin(elapsedTime * 3)) * 1;
 
       this.model3D.position.set(x, y, this.model3D.position.z);
