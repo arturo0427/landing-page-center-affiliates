@@ -39,17 +39,42 @@
 }
 
 .card {
-  height: 300px;
-  width: 500px;
-  background-color: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(100px);
-  border-radius: 1rem;
+  width: 550px;
+  height: 350px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px) saturate(100%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   color: white;
 }
 
 .play-now-description {
   color: white;
   padding: 10px 0;
+}
+
+.custom-padding {
+  padding: 0 10rem;
+}
+
+@media (max-width: 768px) {
+  .custom-padding {
+    padding: 0 1rem;
+  }
+}
+
+.point {
+  width: 20px;
+  height: 20px;
+  background-color: azure;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
 }

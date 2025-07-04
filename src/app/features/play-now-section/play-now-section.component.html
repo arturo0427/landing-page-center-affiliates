@@ -1,28 +1,23 @@
-<!-- <div id="play-now" class="play-now position-relative overflow-hidden">
-  <div #threeDice class="three-dice position-absolute top-0 start-0 w-100 h-100"></div>
-
-  <div class="container h-100 d-flex align-items-center">
-    <div class="play-now-content text-white">
-      <h2 class="section-title">Play Now</h2>
-      <p class="play-now-description">Join the fun and start playing today!</p>
-      <button class="btn btn-primary" (click)="startGame()">Start Game</button>
-    </div>
-  </div>
-</div> -->
-
-<div id="play-now" class="play-now position-relative">
-  <!-- Background Three.js -->
+<div id="play-now" class="play-now position-relative cursor-pointer">
+  <div #point class="point"></div>
   <div
     #threeDice
     class="three-dice position-absolute top-0 start-0 w-100 h-100 z-0"
   ></div>
 
-  <!-- Content Overlay (smaller and animable) -->
-  <div class="container position-relative top-50 z-2">
-    <div class="play-now-content text-white card">
-      <h2 class="section-title">Play Now</h2>
-      <p class="play-now-description">Join the fun and start playing today!</p>
-      <button class="btn btn-primary" (click)="startGame()">Start Game</button>
+  <div
+    class="d-flex justify-content-start align-items-center w-100 h-100 custom-padding"
+  >
+    <div class="card flex-column justify-content-evenly align-items-start">
+      <h2 class="section-title mt-0 mb-2">
+        {{ "PLAY_NOW.TITLE" | translate }}
+      </h2>
+      <p class="play-now-description">
+        {{ "PLAY_NOW.DESCRIPTION" | translate }}
+      </p>
+      <button class="btn btn-primary w-100" (click)="startGame()">
+        {{ "PLAY_NOW.START_GAME" | translate }}
+      </button>
     </div>
   </div>
 </div>

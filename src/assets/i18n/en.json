@@ -27,5 +27,10 @@
     "BEST_ODDS": "Best odds",
     "CASHOUT": "Cashout",
     "SPECIAL_OFFERS": "Special promotions"
+  },
+  "PLAY_NOW": {
+    "TITLE": "Play Now!",
+    "DESCRIPTION": "Sorti offers a wide variety of sports and games where excitement and strategies come to life with the potential for winnings in every bet.",
+    "START_GAME": "Start Game"
   }
 }

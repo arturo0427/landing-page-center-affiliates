@@ -1,9 +1,16 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  ViewChild,
+} from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
+import { AnimationService } from '@core/services/ui/animation.service';
 @Component({
   selector: 'play-now-section',
   imports: [TranslateModule],
@@ -37,6 +44,9 @@ export class PlayNowSectionComponent implements AfterViewInit {
 
   @ViewChild('play-now') playNow!: ElementRef;
   @ViewChild('threeDice', { static: true }) threeDice!: ElementRef;
+  @ViewChild('point', { static: true }) pointRef!: ElementRef;
+
+  private animationService = inject(AnimationService);
 
   ngAfterViewInit(): void {
     // this.animationService.gsapDevTools();
@@ -44,6 +54,8 @@ export class PlayNowSectionComponent implements AfterViewInit {
     this.animate();
     this.threeDice.nativeElement.addEventListener('click', this.onClick, false);
     window.addEventListener('resize', this.onWindowResize);
+
+    this.animationService.trackCursorPoint('.point');
   }
 
   private initThree(): void {

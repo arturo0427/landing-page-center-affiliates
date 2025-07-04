@@ -21,6 +21,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
   templateUrl: './home-section.component.html',
 })
 export class HomeSectionComponent implements AfterViewInit {
+  private WORLD_WIDTH = 4;
+  private WORLD_HEIGHT = 5;
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
@@ -31,8 +33,8 @@ export class HomeSectionComponent implements AfterViewInit {
   private clock: THREE.Clock = new THREE.Clock();
 
   @ViewChild('mainBaner') mainBaner!: ElementRef;
+  @ViewChild('backgroundImage') backgroundImage!: ElementRef;
   @ViewChild('threeContainer', { static: true }) threeContainer!: ElementRef;
-
   private viewportScroller = inject(ViewportScroller);
   private animationService = inject(AnimationService);
 
@@ -42,7 +44,9 @@ export class HomeSectionComponent implements AfterViewInit {
     this.animate();
     window.addEventListener('resize', this.onWindowResize);
     window.addEventListener('mousemove', this.onMouseMove);
-    this.animationService.fadeIn(this.mainBaner.nativeElement, 0, 2);
+    this.animationService.fadeIn(this.backgroundImage.nativeElement, 0, 3);
+    this.animationService.fadeIn(this.mainBaner.nativeElement, 0.5, 3);
+    this.animationService.fadeIn(this.threeContainer.nativeElement, 1, 3);
   }
 
   ngOnDestroy(): void {
@@ -63,9 +67,15 @@ export class HomeSectionComponent implements AfterViewInit {
     this.scene = new THREE.Scene();
     // this.scene.background = new THREE.Color(0xeeeeee);
     this.scene.background = null;
+    const aspect = width / height;
+    const isPortrait = height > width;
+    const fov = isPortrait ? 60 : 75;
 
-    this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    this.camera.position.set(0, 2.5, 5);
+    this.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000);
+    // this.camera.position.set(0, 2.5, 5);
+
+    this.camera.position.set(0, this.WORLD_HEIGHT / 3, this.WORLD_HEIGHT);
+    this.camera.lookAt(0, this.WORLD_HEIGHT * 0.5, 0);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setSize(width, height);
@@ -128,13 +138,13 @@ export class HomeSectionComponent implements AfterViewInit {
     // this.controls.update();
 
     if (this.model3D) {
-      const x = Math.sin(elapsedTime * 0.5) * 2;
-      const y = Math.abs(Math.sin(elapsedTime * 3)) * 1;
+      const x = Math.sin(elapsedTime * 0.1) * (this.WORLD_WIDTH / 2 - 0.5);
+      const y = Math.abs(Math.sin(elapsedTime * 2)) * (this.WORLD_HEIGHT / 4);
 
       this.model3D.position.set(x, y, this.model3D.position.z);
 
-      this.model3D.rotation.y = elapsedTime * 3;
-      this.model3D.rotation.x = Math.sin(elapsedTime * 0.5) * 0.5;
+      this.model3D.rotation.y = elapsedTime * 2;
+      this.model3D.rotation.x = Math.sin(elapsedTime * 0.3) * 0.5;
     }
 
     this.camera.updateProjectionMatrix();
@@ -148,13 +158,12 @@ export class HomeSectionComponent implements AfterViewInit {
   };
 
   private onWindowResize = (): void => {
-    this.camera.aspect =
-      this.threeContainer.nativeElement.clientWidth /
-      this.threeContainer.nativeElement.clientHeight;
+    const width = this.threeContainer.nativeElement.clientWidth;
+    const height = this.threeContainer.nativeElement.clientHeight;
+    const aspect = width / height;
+
+    this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(
-      this.threeContainer.nativeElement.clientWidth,
-      this.threeContainer.nativeElement.clientHeight
-    );
+    this.renderer.setSize(width, height);
   };
 }
