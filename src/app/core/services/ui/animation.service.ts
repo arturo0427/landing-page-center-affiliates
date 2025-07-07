@@ -19,16 +19,50 @@ export class AnimationService {
     );
   }
 
-  trackCursorPoint(className = '.point', duration = 0.2) {
-    const point = document.querySelector(className) as HTMLElement;
-    if (!point) return;
+  bindCursorToElement(
+    container: HTMLElement,
+    point: HTMLElement,
+    radius = 40,
+    duration = 0.2
+  ) {
+    if (!container || !point) return;
 
     const quickX = gsap.quickTo(point, 'x', { duration, ease: 'power2.out' });
     const quickY = gsap.quickTo(point, 'y', { duration, ease: 'power2.out' });
 
-    document.addEventListener('mousemove', (e) => {
-      quickX(e.clientX);
-      quickY(e.clientY);
+    container.addEventListener('mouseenter', () => {
+      gsap.to(point, { opacity: 1, duration: 0.3 });
     });
+
+    container.addEventListener('mouseleave', () => {
+      gsap.to(point, { opacity: 0, duration: 0.3 });
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left - radius;
+      const y = e.clientY - rect.top - radius;
+
+      quickX(x);
+      quickY(y);
+    });
+
+    container.addEventListener('click', () => {
+      this.animateClick(point);
+    });
+  }
+
+  private animateClick(el: HTMLElement): void {
+    gsap.fromTo(
+      el,
+      { scale: 1 },
+      {
+        scale: 1.4,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+        ease: 'power1.inOut',
+      }
+    );
   }
 }

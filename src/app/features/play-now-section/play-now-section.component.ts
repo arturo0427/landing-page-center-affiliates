@@ -5,35 +5,34 @@ import {
   inject,
   ViewChild,
 } from '@angular/core';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { AnimationService } from '@core/services/ui/animation.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
-import { AnimationService } from '@core/services/ui/animation.service';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 @Component({
   selector: 'play-now-section',
   imports: [TranslateModule],
   templateUrl: './play-now-section.component.html',
 })
 export class PlayNowSectionComponent implements AfterViewInit {
-  private renderer!: THREE.WebGLRenderer;
+  @ViewChild('play-now') playNow!: ElementRef;
+  @ViewChild('point', { static: true }) pointRef!: ElementRef;
+  @ViewChild('threeDice', { static: true }) threeDice!: ElementRef;
+
   private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera;
   private animationId!: number;
-  private controls!: OrbitControls;
-  private model3D!: THREE.Object3D;
+  private renderer!: THREE.WebGLRenderer;
+  private camera!: THREE.PerspectiveCamera;
+
   private mouse = { x: 0, y: 0 };
-  private group: THREE.Group = new THREE.Group();
-  private clock: THREE.Clock = new THREE.Clock();
-  private diceGroups: THREE.Group[] = [];
-  private progressAnimation = false;
-  private initialPositions = [
-    new THREE.Vector3(2, 0, 2),
-    new THREE.Vector3(1.2, 0, 1.5),
-  ];
+  private targetMouse = { x: 0, y: 0 };
+
   private diceHeights: number[] = [];
-  public diceFaceRotations: any = {
+  private diceGroups: THREE.Group[] = [];
+  private progressAnimation: boolean = false;
+
+  private readonly diceFaceRotations: any = {
     1: { x: 0, y: 0 },
     2: { x: -Math.PI / 2, y: 0 },
     3: { x: 0, y: Math.PI / 2 },
@@ -42,20 +41,30 @@ export class PlayNowSectionComponent implements AfterViewInit {
     6: { x: Math.PI, y: 0 },
   };
 
-  @ViewChild('play-now') playNow!: ElementRef;
-  @ViewChild('threeDice', { static: true }) threeDice!: ElementRef;
-  @ViewChild('point', { static: true }) pointRef!: ElementRef;
+  private readonly initialPositions = [
+    new THREE.Vector3(2, 0, 2),
+    new THREE.Vector3(1.2, 0, 1.5),
+  ];
 
   private animationService = inject(AnimationService);
 
   ngAfterViewInit(): void {
-    // this.animationService.gsapDevTools();
     this.initThree();
     this.animate();
-    this.threeDice.nativeElement.addEventListener('click', this.onClick, false);
+    this.bindEvents();
+  }
+
+  private bindEvents(): void {
+    this.threeDice.nativeElement.addEventListener('click', this.onClick);
+    this.threeDice.nativeElement.addEventListener(
+      'mousemove',
+      this.onMouseMove
+    );
     window.addEventListener('resize', this.onWindowResize);
 
-    this.animationService.trackCursorPoint('.point');
+    const pointEl = this.pointRef.nativeElement;
+    const container = document.getElementById('play-now');
+    this.animationService.bindCursorToElement(container!, pointEl);
   }
 
   private initThree(): void {
@@ -75,101 +84,94 @@ export class PlayNowSectionComponent implements AfterViewInit {
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+    this.setupLights();
+    this.setupFloor();
+    this.loadDiceModels();
+  }
+
+  private setupLights(): void {
     const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     this.scene.add(ambientLight);
+
     const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
     directionalLight.position.set(-1, 4, -5);
-    this.camera.lookAt(0, 0, 0);
     directionalLight.target.position.set(0, 0, 0);
     directionalLight.castShadow = true;
 
     this.scene.add(directionalLight);
     this.scene.add(directionalLight.target);
+  }
 
-    //TEXTURE TABLE
+  private setupFloor(): void {
     const loader = new THREE.TextureLoader();
+    const maxAnisotropy = this.renderer.capabilities.getMaxAnisotropy();
 
     const colorMap = loader.load(
       'assets/textures/table/Fabric037_1K-JPG_Color.jpg'
     );
-
     colorMap.colorSpace = THREE.SRGBColorSpace;
+    colorMap.wrapS = colorMap.wrapT = THREE.RepeatWrapping;
+    colorMap.repeat.set(4, 4);
+    colorMap.anisotropy = maxAnisotropy;
 
     const normalMap = loader.load(
       'assets/textures/table/Fabric037_1K-JPG_NormalGL.jpg'
     );
-
     const roughnessMap = loader.load(
       'assets/textures/table/Fabric037_1K-JPG_Roughness.jpg'
     );
-
     const aoMap = loader.load(
       'assets/textures/table/Fabric037_1K-JPG_AmbientOcclusion.jpg'
     );
 
-    [colorMap, normalMap, roughnessMap].forEach((map) => {
+    [normalMap, roughnessMap].forEach((map) => {
       map.wrapS = map.wrapT = THREE.RepeatWrapping;
       map.repeat.set(4, 4);
-      map.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
+      map.anisotropy = maxAnisotropy;
     });
 
-    const floorGeometry = new THREE.PlaneGeometry(20, 20);
-    const floorMaterial = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshStandardMaterial({
       map: colorMap,
-      normalMap: normalMap,
-      roughnessMap: roughnessMap,
-      aoMap: aoMap,
+      normalMap,
+      roughnessMap,
+      aoMap,
       roughness: 1,
       metalness: 0,
     });
-    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 
-    const maxAnisotropy = this.renderer.capabilities.getMaxAnisotropy();
-    colorMap.anisotropy = maxAnisotropy;
-    normalMap.anisotropy = maxAnisotropy;
-    roughnessMap.anisotropy = maxAnisotropy;
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), material);
     floor.receiveShadow = true;
-
     floor.rotation.x = -Math.PI / 2;
     floor.position.y = 0;
 
     this.scene.add(floor);
-
-    this.loadGLTF();
   }
 
-  private loadGLTF(): void {
+  private loadDiceModels(): void {
     const loader = new GLTFLoader();
 
     loader.load('assets/object-3d/dice/scene.gltf', (gltf) => {
-      for (let i = 0; i < this.initialPositions.length; i++) {
+      this.initialPositions.forEach((position, i) => {
         const model = gltf.scene.clone(true);
         model.scale.set(0.3, 0.3, 0.3);
 
-        // Centrar el dado
         const box = new THREE.Box3().setFromObject(model);
         const center = new THREE.Vector3();
         box.getCenter(center);
         model.position.sub(center);
 
-        // Clonar materiales individualmente
         model.traverse((child) => {
-          if (child instanceof THREE.Mesh) {
-            child.castShadow = true;
-          }
+          if (child instanceof THREE.Mesh) child.castShadow = true;
         });
 
-        // Calcular altura para colocar sobre el piso
         const height = box.max.y - box.min.y;
         this.diceHeights.push(height);
 
         const group = new THREE.Group();
         group.add(model);
-
-        group.position.copy(this.initialPositions[i]);
+        group.position.copy(position);
         group.position.y = height / 2;
 
-        // Aplica rotación diferente al segundo dado
         if (i === 1) {
           group.rotation.y = Math.PI / 4;
           group.rotation.x = Math.PI;
@@ -177,50 +179,53 @@ export class PlayNowSectionComponent implements AfterViewInit {
 
         this.scene.add(group);
         this.diceGroups.push(group);
-      }
+      });
     });
   }
 
   private animate = (): void => {
-    const elapsedTime = this.clock.getElapsedTime();
-    // this.controls.update();
+    this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.1;
+    this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.1;
 
-    // this.group.rotation.x = elapsedTime * 0.5;
-    // this.group.rotation.y = elapsedTime;
+    const baseX = -3.2;
+    const baseY = 6.6;
+    const targetX = this.mouse.x * 0.4;
+    const targetY = this.mouse.y * 0.3;
+
+    this.camera.position.x += (baseX + targetX - this.camera.position.x) * 0.05;
+    this.camera.position.y += (baseY + targetY - this.camera.position.y) * 0.05;
+    this.camera.lookAt(0, 0, 0);
 
     this.renderer.render(this.scene, this.camera);
     this.animationId = requestAnimationFrame(this.animate);
   };
 
-  private onClick = (_event: MouseEvent): void => {
+  private onMouseMove = (event: MouseEvent): void => {
+    const bounds = this.threeDice.nativeElement.getBoundingClientRect();
+    this.targetMouse.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+    this.targetMouse.y =
+      -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
+  };
+
+  private onClick = (): void => {
     if (this.progressAnimation) return;
     this.progressAnimation = true;
 
     this.diceGroups.forEach((group, i) => {
       const tl = gsap.timeline();
       group.rotation.set(0, 0, 0);
-      // Elección aleatoria de cara (1 a 6)
+
       const targetFace = Math.ceil(Math.random() * 6);
       const faceRot = this.diceFaceRotations[targetFace];
 
-      // Añade giros extra (efecto "roll") + el ángulo necesario
       const randSpinX = Math.PI * 4 + faceRot.x;
       const randSpinY = Math.PI * 4 + faceRot.y;
 
-      tl.to(group.position, {
-        duration: 0.3,
-        y: 1,
-        ease: 'power1.out',
-      });
+      tl.to(group.position, { duration: 0.3, y: 1, ease: 'power1.out' });
 
       tl.to(
         group.rotation,
-        {
-          duration: 0.8,
-          x: randSpinX,
-          y: randSpinY,
-          ease: 'power2.out',
-        },
+        { duration: 0.8, x: randSpinX, y: randSpinY, ease: 'power2.out' },
         '<'
       );
 
@@ -228,9 +233,9 @@ export class PlayNowSectionComponent implements AfterViewInit {
         duration: 0.4,
         y: this.diceHeights[i] / 2,
         ease: 'bounce.out',
-        onComplete: () => {
+        onComplete: (() => {
           this.progressAnimation = false;
-        },
+        }).bind(this),
       });
     });
   };
@@ -238,15 +243,12 @@ export class PlayNowSectionComponent implements AfterViewInit {
   private onWindowResize = (): void => {
     const width = this.threeDice.nativeElement.clientWidth;
     const height = this.threeDice.nativeElement.clientHeight;
-
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
-
     this.renderer.setSize(width, height);
   };
 
-  public startGame() {
-    // Implement the logic to start the game
+  public startGame(): void {
     console.log('Game started!');
   }
 }
