@@ -1,16 +1,11 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './features/main/main.component';
-import { RegisterPlayerComponent } from './features/pages/register-player/register-player.component';
-import { RegisterAgentComponent } from './features/pages/register-agent/register-agent.component';
+import { ContentComponent } from './shared/layout/content/content.component';
+import { FullComponent } from './shared/layout/full/full.component';
+import { content } from './shared/routes/content.routes';
+import { full } from './shared/routes/full.routes';
 
 export const routes: Routes = [
-  { path: '', component: MainComponent },
-  {
-    path: 'register',
-    children: [
-      { path: 'player', component: RegisterPlayerComponent },
-      { path: 'agent', component: RegisterAgentComponent },
-    ],
-  },
+  { path: '', component: ContentComponent, children: content },
+  { path: '', component: FullComponent, children: full },
   { path: '**', redirectTo: '' },
 ];

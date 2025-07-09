@@ -1,0 +1,12 @@
+<div
+  [ngClass]="{
+    'navbar-style-two':
+      router.url === '/home-thirteen' || router.url === '/home-eleven'
+  }"
+>
+  <app-navbar />
+</div>
+
+<router-outlet />
+
+<app-footer />
