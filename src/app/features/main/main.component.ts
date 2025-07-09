@@ -4,6 +4,9 @@ import { PlayerSectionComponent } from '../player-section/player-section.compone
 import { BenefitsSectionComponent } from '../benefits-section/benefits-section.component';
 import { PlayNowSectionComponent } from '../play-now-section/play-now-section.component';
 
+import { gsap } from 'gsap';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+
 @Component({
   selector: 'main',
   imports: [

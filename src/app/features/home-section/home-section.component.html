@@ -15,10 +15,13 @@
         <p>
           {{ "HOME.DESCRIPTION" | translate }}
         </p>
-        <a (click)="onClick('about')" class="btn btn-primary">
+        <a (click)="onClick(OPTIONS_REGISTER.PLAYER)" class="btn btn-primary">
           {{ "HOME.BTN_PLAYER" | translate }}</a
         >
-        <a (click)="onClick('work')" class="btn btn-primary view-work">
+        <a
+          (click)="onClick(OPTIONS_REGISTER.AGENT)"
+          class="btn btn-primary view-work"
+        >
           {{ "HOME.BTN_AGENT" | translate }}</a
         >
       </div>

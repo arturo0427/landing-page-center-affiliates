@@ -856,3 +856,23 @@ textarea {
 /* Min width 1600px */
 @media only screen and (min-width: 1600px) {
 }
+
+@keyframes grow-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+#progressBar {
+  position: fixed;
+  z-index: 9999;
+  height: 2px;
+  width: 100%;
+  background-color: var(--mainColor);
+  animation: grow-progress linear forwards;
+  animation-timeline: scroll();
+  transform-origin: left;
+}
