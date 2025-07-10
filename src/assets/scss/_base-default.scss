@@ -876,3 +876,151 @@ textarea {
   animation-timeline: scroll();
   transform-origin: left;
 }
+
+//padre
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.tab-switcher {
+  display: flex;
+  position: relative;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+
+  button {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    z-index: 1;
+
+    &.active {
+      color: #42c148;
+    }
+  }
+
+  .tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc(50% - 6px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+//simple
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .input {
+    padding: 0.875rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-color: #42c148;
+      box-shadow: 0 0 0 3px rgba(66, 193, 72, 0.1);
+    }
+  }
+}
+
+.password-field {
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .toggle-btn {
+      position: absolute;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0;
+    }
+  }
+}
+
+//complete
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-field {
+  flex: 1 1 100%;
+
+  @media (min-width: 768px) {
+    flex: 1 1 calc(50% - 0.5rem); // 2 columnas con espacio entre ellas
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.input-group {
+  position: relative;
+
+  .input {
+    padding-right: 3rem;
+  }
+
+  .toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}

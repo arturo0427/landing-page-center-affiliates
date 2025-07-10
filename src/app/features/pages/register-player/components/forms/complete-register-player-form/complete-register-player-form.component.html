@@ -1,1 +1,99 @@
-<p>complete-register-player-form works!</p>
+<form [formGroup]="completeRegisterPlayerForm" class="form-wrapper">
+  <!-- Fila 1: Nombre y Apellido -->
+  <div class="form-row">
+    <div class="form-field">
+      <label for="firstName">Nombre</label>
+      <input
+        id="firstName"
+        type="text"
+        formControlName="firstName"
+        class="input"
+        placeholder="Juan"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="lastName">Apellido</label>
+      <input
+        id="lastName"
+        type="text"
+        formControlName="lastName"
+        class="input"
+        placeholder="Pérez"
+      />
+    </div>
+  </div>
+
+  <!-- Fila 2: DNI y Email -->
+  <div class="form-row">
+    <div class="form-field">
+      <label for="dni">DNI</label>
+      <input
+        id="dni"
+        type="text"
+        formControlName="dni"
+        class="input"
+        placeholder="0102030405"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="email">Correo electrónico (opcional)</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="input"
+        placeholder="correo@ejemplo.com"
+      />
+    </div>
+  </div>
+
+  <!-- Fila 3: Teléfono y Código de referido -->
+  <div class="form-row">
+    <div class="form-field">
+      <label for="phone">Teléfono</label>
+      <input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        class="input"
+        placeholder="+593 987654321"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="referralCode">Código de referido</label>
+      <input
+        id="referralCode"
+        type="text"
+        formControlName="referralCode"
+        class="input"
+        placeholder="ABC123"
+      />
+    </div>
+  </div>
+
+  <!-- Fila 4: Contraseña (100%) -->
+  <div class="form-field password-field">
+    <label for="password">Contraseña</label>
+    <div class="input-group">
+      <input
+        id="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        formControlName="password"
+        class="input"
+        placeholder="••••••••"
+      />
+      <button
+        type="button"
+        class="toggle-btn"
+        (click)="togglePasswordVisibility()"
+        aria-label="Mostrar contraseña"
+      >
+        <span *ngIf="hidePassword">👁️</span>
+        <span *ngIf="!hidePassword">🙈</span>
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,3 +1,45 @@
-<div class="card" style="width: auto">
-  <p>simple-register-player-form works!</p>
-</div>
+<form [formGroup]="simpleRegisterPlayerForm" class="form-wrapper">
+  <div class="form-field">
+    <label for="phone">Teléfono</label>
+    <input
+      type="tel"
+      id="phone"
+      formControlName="phone"
+      placeholder="+593 987654321"
+      class="input"
+    />
+  </div>
+
+  <div class="form-field password-field">
+    <label for="password">Contraseña</label>
+    <div class="input-group">
+      <input
+        [type]="hidePassword ? 'password' : 'text'"
+        id="password"
+        formControlName="password"
+        placeholder="••••••••"
+        class="input"
+      />
+      <button
+        type="button"
+        class="toggle-btn"
+        (click)="togglePasswordVisibility()"
+        aria-label="Mostrar contraseña"
+      >
+        <span *ngIf="hidePassword">👁️</span>
+        <span *ngIf="!hidePassword">🙈</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="referralCode">Código de Referido</label>
+    <input
+      type="text"
+      id="referralCode"
+      formControlName="referralCode"
+      placeholder="ABC123"
+      class="input"
+    />
+  </div>
+</form>
