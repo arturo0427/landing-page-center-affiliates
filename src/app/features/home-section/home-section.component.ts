@@ -94,7 +94,14 @@ export class HomeSectionComponent implements AfterViewInit, OnDestroy {
       0.1,
       1000
     );
-    this.camera.position.set(0, this.WORLD_HEIGHT / 3, this.WORLD_HEIGHT);
+    // this.camera.position.set(0, this.WORLD_HEIGHT / 3, this.WORLD_HEIGHT);
+    if (window.innerWidth < 768) {
+      this.camera.position.set(0, -1.5, 5);
+    } else if (window.innerWidth < 1024) {
+      this.camera.position.set(0, -0.5, 5);
+    } else {
+      this.camera.position.set(0, this.WORLD_HEIGHT / 3, this.WORLD_HEIGHT);
+    }
     this.camera.lookAt(0, this.WORLD_HEIGHT * 0.5, 0);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
