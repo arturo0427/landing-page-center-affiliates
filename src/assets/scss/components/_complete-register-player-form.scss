@@ -14,7 +14,7 @@
   flex: 1 1 100%;
 
   @media (min-width: 768px) {
-    flex: 1 1 calc(50% - 0.5rem); // 2 columnas con espacio entre ellas
+    flex: 1 1 calc(50% - 0.5rem);
   }
 }
 

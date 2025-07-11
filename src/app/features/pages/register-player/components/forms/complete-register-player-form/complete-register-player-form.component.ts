@@ -12,7 +12,6 @@ import {
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './complete-register-player-form.component.html',
-  styleUrl: './complete-register-player-form.component.scss',
 })
 export class CompleteRegisterPlayerFormComponent implements OnInit {
   public completeRegisterPlayerForm!: FormGroup;

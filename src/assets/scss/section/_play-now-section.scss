@@ -1,28 +1,10 @@
-// .play-now {
-//   height: 75vh;
-//   position: relative;
-// }
-
-// .three-dice {
-//   height: 75vh;
-// }
-
-// .play-now-content {
-//   position: absolute;
-//   top: 50%;
-//   left: 0;
-//   z-index: 2;
-//   text-align: center;
-//   background-color: transparent !important;
-// }
-
 .play-now {
   height: 75vh;
   overflow: hidden;
 }
 
 .three-dice {
-  pointer-events: auto; /* Este recibe los clics del raycaster */
+  pointer-events: auto;
 }
 
 .play-now-content {
@@ -43,10 +25,10 @@
   height: 350px;
   padding: 2rem;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px) saturate(100%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(7px) saturate(100%);
+  -webkit-backdrop-filter: blur(7px) saturate(100%);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   color: white;
 }

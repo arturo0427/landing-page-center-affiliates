@@ -17,4 +17,21 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
   ],
   templateUrl: './main.component.html',
 })
-export class MainComponent {}
+export class MainComponent {
+  ngAfterViewInit(): void {
+    this.progressBar();
+  }
+
+  private progressBar(): void {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+
+      const bar = document.getElementById('progressBar');
+      if (bar) {
+        bar.style.width = `${progress}%`;
+      }
+    });
+  }
+}

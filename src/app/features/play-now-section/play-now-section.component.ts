@@ -194,7 +194,7 @@ export class PlayNowSectionComponent implements AfterViewInit {
 
     this.camera.position.x += (baseX + targetX - this.camera.position.x) * 0.05;
     this.camera.position.y += (baseY + targetY - this.camera.position.y) * 0.05;
-    this.camera.lookAt(0, 0, 0);
+    this.camera.lookAt(-1.5, 0, 0);
 
     this.renderer.render(this.scene, this.camera);
     this.animationId = requestAnimationFrame(this.animate);

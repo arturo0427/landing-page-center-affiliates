@@ -1,5 +1,4 @@
 <form [formGroup]="completeRegisterPlayerForm" class="form-wrapper">
-  <!-- Fila 1: Nombre y Apellido -->
   <div class="form-row">
     <div class="form-field">
       <label for="firstName">Nombre</label>
@@ -24,7 +23,6 @@
     </div>
   </div>
 
-  <!-- Fila 2: DNI y Email -->
   <div class="form-row">
     <div class="form-field">
       <label for="dni">DNI</label>
@@ -49,7 +47,6 @@
     </div>
   </div>
 
-  <!-- Fila 3: Teléfono y Código de referido -->
   <div class="form-row">
     <div class="form-field">
       <label for="phone">Teléfono</label>
@@ -74,7 +71,6 @@
     </div>
   </div>
 
-  <!-- Fila 4: Contraseña (100%) -->
   <div class="form-field password-field">
     <label for="password">Contraseña</label>
     <div class="input-group">
@@ -91,8 +87,11 @@
         (click)="togglePasswordVisibility()"
         aria-label="Mostrar contraseña"
       >
-        <span *ngIf="hidePassword">👁️</span>
-        <span *ngIf="!hidePassword">🙈</span>
+        @if(hidePassword){
+        <span>👁️</span>
+        } @else {
+        <span>🙈</span>
+        }
       </button>
     </div>
   </div>
