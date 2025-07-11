@@ -1,0 +1,73 @@
+.custom-color {
+  color: var(--mainColor);
+}
+
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #eef4f2, #ffffff);
+}
+
+.register-inner {
+  width: 100%;
+  max-width: 600px;
+}
+
+.register-container {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  width: 100%;
+}
+
+.tab-switcher {
+  display: flex;
+  position: relative;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+
+  button {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    z-index: 1;
+
+    &.active {
+      color: var(--mainColor, #42c148);
+    }
+  }
+
+  .tab-indicator {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc(50% - 6px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.form-actions {
+  flex-wrap: wrap;
+
+  button {
+    min-width: 140px;
+  }
+}

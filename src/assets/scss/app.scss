@@ -30,3 +30,18 @@
 @import "section/player-section";
 @import "section/benefits-section";
 @import "section/play-now-section";
+
+/*
+*
+* Pages
+*
+*/
+@import "pages/register-player";
+
+/*
+*
+* Components
+*
+*/
+@import "components/simple-register-player-form";
+@import "components/complete-register-player-form";

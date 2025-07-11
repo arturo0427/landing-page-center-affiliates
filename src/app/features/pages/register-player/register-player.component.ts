@@ -1,25 +1,3 @@
-// import { CommonModule } from '@angular/common';
-// import { Component, inject, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup } from '@angular/forms';
-// import { SimpleRegisterPlayerFormComponent } from './components/forms/simple-register-player-form/simple-register-player-form.component';
-// import { CompleteRegisterPlayerFormComponent } from './components/forms/complete-register-player-form/complete-register-player-form.component';
-
-// @Component({
-//   selector: 'app-register-player',
-//   imports: [
-//     //Modules
-//     CommonModule,
-
-//     //Components
-//     SimpleRegisterPlayerFormComponent,
-//     CompleteRegisterPlayerFormComponent,
-//   ],
-//   templateUrl: './register-player.component.html',
-// })
-// export class RegisterPlayerComponent implements OnInit {
-//   ngOnInit(): void {}
-// }
-
 import {
   Component,
   inject,
@@ -32,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { SimpleRegisterPlayerFormComponent } from './components/forms/simple-register-player-form/simple-register-player-form.component';
 import { CompleteRegisterPlayerFormComponent } from './components/forms/complete-register-player-form/complete-register-player-form.component';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-player',
@@ -44,9 +24,15 @@ import { CompleteRegisterPlayerFormComponent } from './components/forms/complete
   templateUrl: './register-player.component.html',
 })
 export class RegisterPlayerComponent implements AfterViewInit {
-  activeTab = signal<'simple' | 'complete'>('simple');
+  public isFormValid: boolean = false;
+
+  public currentForm: FormGroup | undefined = undefined;
+
+  public activeTab = signal<'simple' | 'complete'>('simple');
   @ViewChild('formWrapper', { static: false }) formWrapperRef!: ElementRef;
   @ViewChild('tabIndicator', { static: false }) tabIndicatorRef!: ElementRef;
+
+  private router = inject(Router);
 
   ngAfterViewInit() {
     gsap.fromTo(
@@ -56,7 +42,34 @@ export class RegisterPlayerComponent implements AfterViewInit {
     );
   }
 
+  onFormReady(form: FormGroup) {
+    this.currentForm = form;
+    this.isFormValid = form.valid;
+
+    form.statusChanges.subscribe(() => {
+      this.isFormValid = form.valid;
+    });
+  }
+
+  onSubmit() {
+    if (!this.currentForm) return;
+    if (this.currentForm.valid) {
+      const formData = this.currentForm.value;
+      console.log('Enviar datos al backend:', formData);
+    } else {
+      this.currentForm.markAllAsTouched();
+    }
+  }
+
+  onMoreInfo() {
+    this.router.navigate(['/']);
+  }
+
   switchTab(tab: 'simple' | 'complete') {
+    this.activeTab.set(tab);
+    this.currentForm = undefined;
+    this.isFormValid = false;
+
     const wrapper = this.formWrapperRef.nativeElement;
 
     gsap.to(wrapper, {
@@ -74,9 +87,9 @@ export class RegisterPlayerComponent implements AfterViewInit {
         );
 
         gsap.fromTo(
-          wrapper.querySelectorAll('.form-field'),
+          wrapper.querySelectorAll('.form-field, .form-actions'),
           { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.05, delay: 0.1 }
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.05, delay: 0.1 }
         );
 
         gsap.to(this.tabIndicatorRef.nativeElement, {

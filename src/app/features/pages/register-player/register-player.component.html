@@ -1,47 +1,57 @@
-<!-- <div
-  class="container d-flex flex-column justify-content-center align-items-center gap-3 vh-100"
->
-  <div class="row text-center">
-    <h1>Bienvenido a Sorti</h1>
-  </div>
-  <div class="row justify-content-center align-items-center w-100">
-    <div class="col-12 col-md-8">
-      <div class="">
-        <simple-register-player-form></simple-register-player-form>
+<div class="register-wrapper">
+  <div class="register-inner">
+    <h2 class="display-5 fw-bold text-center mb-4 title-animation">
+      <small class="text-body-tertiary fw-semibold">Bienvenido a </small
+      ><span class="custom-color">Sorti</span>
+    </h2>
+
+    <div class="register-container">
+      <div class="tab-switcher">
+        <div class="tab-indicator" #tabIndicator></div>
+
+        <button
+          (click)="switchTab('simple')"
+          [class.active]="activeTab() === 'simple'"
+        >
+          Registro rápido
+        </button>
+
+        <button
+          (click)="switchTab('complete')"
+          [class.active]="activeTab() === 'complete'"
+        >
+          Registro Completo
+        </button>
       </div>
-    </div>
-  </div>
-</div> -->
 
-<div
-  class="d-flex flex-column justify-content-center align-items-center gap-4 vh-100 px-2"
->
-  <h2 class="display-5 fw-bold">
-    <small class="text-body-secondary fw-semibold">Bienvenido a </small>Sorti
-  </h2>
-  <div class="register-container">
-    <div class="tab-switcher">
-      <div class="tab-indicator" #tabIndicator></div>
-      <button
-        (click)="switchTab('simple')"
-        [class.active]="activeTab() === 'simple'"
-      >
-        Quick Start
-      </button>
-      <button
-        (click)="switchTab('complete')"
-        [class.active]="activeTab() === 'complete'"
-      >
-        Complete Profile
-      </button>
-    </div>
+      <div #formWrapper>
+        @if (activeTab() === 'simple') {
+        <simple-register-player-form
+          (formReady)="onFormReady($event)"
+        ></simple-register-player-form>
+        } @else {
+        <complete-register-player-form
+          (formReady)="onFormReady($event)"
+        ></complete-register-player-form>
+        }
 
-    <div #formWrapper>
-      @if (activeTab() === 'simple') {
-      <simple-register-player-form></simple-register-player-form>
-      } @else {
-      <complete-register-player-form></complete-register-player-form>
-      }
+        <div class="row g-3 mt-4">
+          <div class="col-12 col-md-auto flex-fill">
+            <button
+              class="btn btn-primary w-100"
+              [disabled]="!isFormValid"
+              (click)="onSubmit()"
+            >
+              Registrarse
+            </button>
+          </div>
+          <div class="col-12 col-md-auto flex-fill">
+            <button class="btn btn-secondary w-100" (click)="onMoreInfo()">
+              Más Información
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
