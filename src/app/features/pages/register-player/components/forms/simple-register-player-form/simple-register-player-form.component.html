@@ -1,8 +1,8 @@
-<form [formGroup]="simpleRegisterPlayerForm" class="form-wrapper">
+<form #formEl [formGroup]="simpleRegisterPlayerForm" class="form-wrapper">
   <div class="form-field">
     <label for="phone">Teléfono</label>
     <input
-      type="tel"
+      type="text"
       id="phone"
       formControlName="phone"
       placeholder="+593 987654321"

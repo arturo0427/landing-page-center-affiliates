@@ -71,3 +71,46 @@
     min-width: 140px;
   }
 }
+
+//Logo
+.floating-icon {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+//background imagen
+.icon-1 {
+  top: 10%;
+  left: 5%;
+  width: 40px;
+  animation-delay: 0s;
+}
+
+//Icons floating
+.icon-2 {
+  bottom: 60%;
+  right: 53%;
+  width: 300px;
+  animation-delay: 1.5s;
+}
+
+@media (width >= 768px) {
+  .icon-2 {
+    bottom: 54%;
+    right: 58%;
+    width: 350px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}

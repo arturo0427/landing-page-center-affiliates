@@ -1,5 +1,7 @@
 <div class="register-wrapper">
   <div class="register-inner">
+    <img src="assets/images/logo_sorti.webp" class="floating-icon icon-2" />
+
     <h2 class="display-5 fw-bold text-center mb-4 title-animation">
       <small class="text-body-tertiary fw-semibold">Bienvenido a </small
       ><span class="custom-color">Sorti</span>
@@ -25,7 +27,7 @@
       </div>
 
       <div #formWrapper>
-        @if (activeTab() === 'simple') {
+        @if (visibleTab() === 'simple') {
         <simple-register-player-form
           (formReady)="onFormReady($event)"
         ></simple-register-player-form>

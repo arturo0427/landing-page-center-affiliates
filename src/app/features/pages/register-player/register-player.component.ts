@@ -12,6 +12,7 @@ import { SimpleRegisterPlayerFormComponent } from './components/forms/simple-reg
 import { CompleteRegisterPlayerFormComponent } from './components/forms/complete-register-player-form/complete-register-player-form.component';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register-player',
@@ -25,10 +26,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterPlayerComponent implements AfterViewInit {
   public isFormValid: boolean = false;
+  private formStatusSub?: Subscription;
 
   public currentForm: FormGroup | undefined = undefined;
 
   public activeTab = signal<'simple' | 'complete'>('simple');
+  public visibleTab = signal<'simple' | 'complete'>('simple');
   @ViewChild('formWrapper', { static: false }) formWrapperRef!: ElementRef;
   @ViewChild('tabIndicator', { static: false }) tabIndicatorRef!: ElementRef;
 
@@ -46,7 +49,9 @@ export class RegisterPlayerComponent implements AfterViewInit {
     this.currentForm = form;
     this.isFormValid = form.valid;
 
-    form.statusChanges.subscribe(() => {
+    this.formStatusSub?.unsubscribe();
+
+    this.formStatusSub = form.statusChanges.subscribe(() => {
       this.isFormValid = form.valid;
     });
   }
@@ -66,6 +71,7 @@ export class RegisterPlayerComponent implements AfterViewInit {
   }
 
   switchTab(tab: 'simple' | 'complete') {
+    if (tab === this.activeTab()) return;
     this.activeTab.set(tab);
     this.currentForm = undefined;
     this.isFormValid = false;
@@ -80,24 +86,36 @@ export class RegisterPlayerComponent implements AfterViewInit {
       onComplete: () => {
         this.activeTab.set(tab);
 
-        gsap.fromTo(
-          wrapper,
-          { opacity: 0, x: tab === 'simple' ? 30 : -30 },
-          { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
-        );
+        this.visibleTab.set(tab);
+        this.currentForm = undefined;
+        this.isFormValid = false;
 
-        gsap.fromTo(
-          wrapper.querySelectorAll('.form-field, .form-actions'),
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.05, delay: 0.1 }
-        );
+        requestAnimationFrame(() => {
+          const newWrapper = this.formWrapperRef.nativeElement;
 
-        gsap.to(this.tabIndicatorRef.nativeElement, {
-          x: tab === 'simple' ? '0%' : '100%',
-          duration: 0.4,
-          ease: 'power3.out',
+          gsap.fromTo(
+            newWrapper,
+            { opacity: 0, x: tab === 'simple' ? 30 : -30 },
+            { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+          );
+
+          gsap.fromTo(
+            newWrapper.querySelectorAll('.form-field, .form-actions'),
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.05, delay: 0.1 }
+          );
+
+          gsap.to(this.tabIndicatorRef.nativeElement, {
+            x: tab === 'simple' ? '0%' : '100%',
+            duration: 0.4,
+            ease: 'power3.out',
+          });
         });
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.formStatusSub?.unsubscribe();
   }
 }
