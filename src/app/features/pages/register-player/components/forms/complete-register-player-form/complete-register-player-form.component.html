@@ -1,7 +1,9 @@
 <form #formEl [formGroup]="completeRegisterPlayerForm" class="form-wrapper">
   <div class="form-row">
     <div class="form-field">
-      <label for="firstName">Nombre</label>
+      <label for="firstName">
+        {{ "PAGES.REGISTER_PLAYER.NAME" | translate }}
+      </label>
       <input
         id="firstName"
         type="text"
@@ -12,7 +14,9 @@
     </div>
 
     <div class="form-field">
-      <label for="lastName">Apellido</label>
+      <label for="lastName">
+        {{ "PAGES.REGISTER_PLAYER.LAST_NAME" | translate }}
+      </label>
       <input
         id="lastName"
         type="text"
@@ -25,7 +29,7 @@
 
   <div class="form-row">
     <div class="form-field">
-      <label for="dni">DNI</label>
+      <label for="dni"> {{ "PAGES.REGISTER_PLAYER.DNI" | translate }} </label>
       <input
         id="dni"
         type="text"
@@ -36,20 +40,20 @@
     </div>
 
     <div class="form-field">
-      <label for="email">Correo electrónico (opcional)</label>
+      <label for="email">{{ "PAGES.REGISTER_PLAYER.EMAIL" | translate }}</label>
       <input
         id="email"
         type="email"
         formControlName="email"
         class="input"
-        placeholder="correo@ejemplo.com"
+        [placeholder]="'PAGES.REGISTER_PLAYER.EMAIL_PLACEHOLDER' | translate"
       />
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-field">
-      <label for="phone">Teléfono</label>
+      <label for="phone">{{ "PAGES.REGISTER_PLAYER.PHONE" | translate }}</label>
       <input
         id="phone"
         type="tel"
@@ -60,7 +64,9 @@
     </div>
 
     <div class="form-field">
-      <label for="referralCode">Código de referido</label>
+      <label for="referralCode">
+        {{ "PAGES.REGISTER_PLAYER.REFERRAL_CODE" | translate }}
+      </label>
       <input
         id="referralCode"
         type="text"
@@ -72,7 +78,9 @@
   </div>
 
   <div class="form-field password-field">
-    <label for="password">Contraseña</label>
+    <label for="password">
+      {{ "PAGES.REGISTER_PLAYER.PASSWORD" | translate }}
+    </label>
     <div class="input-group">
       <input
         id="password"

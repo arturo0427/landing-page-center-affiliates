@@ -33,5 +33,22 @@
     "DESCRIPTION": "Sorti offers a wide variety of sports and games where excitement and strategies come to life with the potential for winnings in every bet.",
     "START_GAME": "Start Game",
     "SPIN": "Spin"
+  },
+  "PAGES": {
+    "REGISTER_PLAYER": {
+      "TITLE": "Welcome to ",
+      "SIMPLE_REGISTER": "Quick Register",
+      "COMPLETE_REGISTER": "Complete Register",
+      "PHONE": "Phone",
+      "PASSWORD": "Password",
+      "REFERRAL_CODE": "Referral Code",
+      "NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "DNI": "ID Number",
+      "EMAIL": "Email",
+      "REGISTER": "Register",
+      "MORE_INFO": "More Info",
+      "EMAIL_PLACEHOLDER": "email@example.com"
+    }
   }
 }

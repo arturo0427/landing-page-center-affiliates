@@ -3,7 +3,8 @@
     <img src="assets/images/logo_sorti.webp" class="floating-icon icon-2" />
 
     <h2 class="display-5 fw-bold text-center mb-4 title-animation">
-      <small class="text-body-tertiary fw-semibold">Bienvenido a </small
+      <small class="text-body-tertiary fw-semibold">
+        {{ "PAGES.REGISTER_PLAYER.TITLE" | translate }} </small
       ><span class="custom-color">Sorti</span>
     </h2>
 
@@ -15,14 +16,14 @@
           (click)="switchTab('simple')"
           [class.active]="activeTab() === 'simple'"
         >
-          Registro rápido
+          {{ "PAGES.REGISTER_PLAYER.SIMPLE_REGISTER" | translate }}
         </button>
 
         <button
           (click)="switchTab('complete')"
           [class.active]="activeTab() === 'complete'"
         >
-          Registro Completo
+          {{ "PAGES.REGISTER_PLAYER.COMPLETE_REGISTER" | translate }}
         </button>
       </div>
 
@@ -44,12 +45,12 @@
               [disabled]="!isFormValid"
               (click)="onSubmit()"
             >
-              Registrarse
+              {{ "PAGES.REGISTER_PLAYER.REGISTER" | translate }}
             </button>
           </div>
           <div class="col-12 col-md-auto flex-fill">
             <button class="btn btn-secondary w-100" (click)="onMoreInfo()">
-              Más Información
+              {{ "PAGES.REGISTER_PLAYER.MORE_INFO" | translate }}
             </button>
           </div>
         </div>

@@ -13,12 +13,14 @@ import { CompleteRegisterPlayerFormComponent } from './components/forms/complete
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-player',
   standalone: true,
   imports: [
     CommonModule,
+    TranslateModule,
     SimpleRegisterPlayerFormComponent,
     CompleteRegisterPlayerFormComponent,
   ],

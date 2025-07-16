@@ -33,5 +33,22 @@
     "DESCRIPTION": "Sorti ofrece una alta variedad de deportes y juegos en donde se vive la emoción y estrategias con el potencial de ganancias en cada apuesta.",
     "START_GAME": "Iniciar Juego",
     "SPIN": "Girar"
+  },
+  "PAGES": {
+    "REGISTER_PLAYER": {
+      "TITLE": "Bienvenido a ",
+      "SIMPLE_REGISTER": "Registro Simple",
+      "COMPLETE_REGISTER": "Registro Completo",
+      "PHONE": "Teléfono",
+      "PASSWORD": "Contraseña",
+      "REFERRAL_CODE": "Código de Referido",
+      "NAME": "Nombre",
+      "LAST_NAME": "Apellido",
+      "DNI": "DNI",
+      "EMAIL": "Correo",
+      "REGISTER": "Registrarse",
+      "MORE_INFO": "Más Información",
+      "EMAIL_PLACEHOLDER": "correo@ejemplo.com"
+    }
   }
 }

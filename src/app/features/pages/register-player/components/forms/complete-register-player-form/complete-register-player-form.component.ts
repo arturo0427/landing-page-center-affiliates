@@ -6,11 +6,12 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'complete-register-player-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './complete-register-player-form.component.html',
 })
 export class CompleteRegisterPlayerFormComponent implements OnInit {
