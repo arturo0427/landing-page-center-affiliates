@@ -15,10 +15,11 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './complete-register-player-form.component.html',
 })
 export class CompleteRegisterPlayerFormComponent implements OnInit {
+  public hidePassword: boolean = true;
   public completeRegisterPlayerForm!: FormGroup;
-  public hidePassword = true;
 
   @Output() formReady = new EventEmitter<FormGroup>();
+
   private formBuilder = inject(FormBuilder);
 
   ngOnInit(): void {

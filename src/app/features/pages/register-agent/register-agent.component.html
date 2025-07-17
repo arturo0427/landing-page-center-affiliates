@@ -1,1 +1,34 @@
-<p>register-agent works!</p>
+<div class="register-wrapper">
+  <div class="register-inner">
+    <img src="assets/images/logo_sorti.webp" class="floating-icon icon-2" />
+
+    <h2 class="display-5 fw-bold text-center mb-4 title-animation">
+      <small class="text-body-tertiary fw-semibold">
+        {{ "PAGES.REGISTER_PLAYER.TITLE" | translate }} </small
+      ><span class="custom-color">Sorti</span>
+    </h2>
+
+    <div class="register-container">
+      <div #formWrapper>
+        <register-agent-form></register-agent-form>
+
+        <div class="row g-3 mt-4">
+          <div class="col-12 col-md-auto flex-fill">
+            <button
+              class="btn btn-primary w-100"
+              [disabled]="!isFormValid"
+              (click)="onSubmit()"
+            >
+              {{ "PAGES.REGISTER_PLAYER.REGISTER" | translate }}
+            </button>
+          </div>
+          <div class="col-12 col-md-auto flex-fill">
+            <button class="btn btn-secondary w-100" (click)="onMoreInfo()">
+              {{ "PAGES.REGISTER_PLAYER.MORE_INFO" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
