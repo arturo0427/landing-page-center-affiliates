@@ -47,7 +47,7 @@ export class RegisterPlayerComponent implements AfterViewInit {
     );
   }
 
-  onFormReady(form: FormGroup) {
+  public onFormReady(form: FormGroup) {
     this.currentForm = form;
     this.isFormValid = form.valid;
 
@@ -58,7 +58,7 @@ export class RegisterPlayerComponent implements AfterViewInit {
     });
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (!this.currentForm) return;
     if (this.currentForm.valid) {
       const formData = this.currentForm.value;
@@ -68,11 +68,11 @@ export class RegisterPlayerComponent implements AfterViewInit {
     }
   }
 
-  onMoreInfo() {
+  public onMoreInfo() {
     this.router.navigate(['/']);
   }
 
-  switchTab(tab: 'simple' | 'complete') {
+  public switchTab(tab: 'simple' | 'complete') {
     if (tab === this.activeTab()) return;
     this.activeTab.set(tab);
     this.currentForm = undefined;

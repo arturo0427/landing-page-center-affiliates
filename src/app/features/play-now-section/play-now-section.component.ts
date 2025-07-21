@@ -50,7 +50,7 @@ export class PlayNowSectionComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initThree();
-    this.animate();
+    // this.renderFrame();
     this.bindEvents();
   }
 
@@ -183,7 +183,7 @@ export class PlayNowSectionComponent implements AfterViewInit {
     });
   }
 
-  private animate = (): void => {
+  public renderFrame = (time: number): void => {
     this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.1;
     this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.1;
 
@@ -197,7 +197,7 @@ export class PlayNowSectionComponent implements AfterViewInit {
     this.camera.lookAt(-1.5, 0, 0);
 
     this.renderer.render(this.scene, this.camera);
-    this.animationId = requestAnimationFrame(this.animate);
+    // this.animationId = requestAnimationFrame(this.renderFrame);
   };
 
   private onMouseMove = (event: MouseEvent): void => {
