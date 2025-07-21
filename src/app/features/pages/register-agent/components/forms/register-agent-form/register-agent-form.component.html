@@ -1,1 +1,140 @@
-<p>register-agent-form works!</p>
+<form #formEl [formGroup]="registerAgentForm" class="form-wrapper">
+  <div class="form-row">
+    <div class="form-field">
+      <label for="firstName">
+        {{ "PAGES.REGISTER_PLAYER.NAME" | translate }}
+      </label>
+      <input
+        id="firstName"
+        type="text"
+        formControlName="firstName"
+        class="input"
+        placeholder="Juan"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="lastName">
+        {{ "PAGES.REGISTER_PLAYER.LAST_NAME" | translate }}
+      </label>
+      <input
+        id="lastName"
+        type="text"
+        formControlName="lastName"
+        class="input"
+        placeholder="Pérez"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        formControlName="username"
+        class="input"
+        placeholder="usuario123"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="email">{{ "PAGES.REGISTER_PLAYER.EMAIL" | translate }}</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="input"
+        [placeholder]="'PAGES.REGISTER_PLAYER.EMAIL_PLACEHOLDER' | translate"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="phone">{{ "PAGES.REGISTER_PLAYER.PHONE" | translate }}</label>
+      <input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        class="input"
+        placeholder="+593 987654321"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="referralCode">
+        {{ "PAGES.REGISTER_PLAYER.REFERRAL_CODE" | translate }}
+      </label>
+      <input
+        id="referralCode"
+        type="text"
+        formControlName="referralCode"
+        class="input"
+        placeholder="ABC123"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="dateOfBirth">Fecha de nacimiento</label>
+      <input
+        id="dateOfBirth"
+        type="date"
+        formControlName="dateOfBirth"
+        class="input"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="country">País</label>
+      <input
+        id="country"
+        type="text"
+        formControlName="country"
+        class="input"
+        placeholder="Ecuador"
+      />
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="city">Ciudad</label>
+    <input
+      id="city"
+      type="text"
+      formControlName="city"
+      class="input"
+      placeholder="Quito"
+    />
+  </div>
+
+  <div class="form-field password-field">
+    <label for="password">
+      {{ "PAGES.REGISTER_PLAYER.PASSWORD" | translate }}
+    </label>
+    <div class="input-group">
+      <input
+        id="password"
+        [type]="hidePassword ? 'password' : 'text'"
+        formControlName="password"
+        class="input"
+        placeholder="••••••••"
+      />
+      <button
+        type="button"
+        class="toggle-btn"
+        (click)="togglePasswordVisibility()"
+        aria-label="Mostrar contraseña"
+      >
+        @if(hidePassword){
+        <span>👁️</span>
+        } @else {
+        <span>🙈</span>
+        }
+      </button>
+    </div>
+  </div>
+</form>

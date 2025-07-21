@@ -42,7 +42,6 @@ export class HomeSectionComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initThree();
-    // this.renderFrame();
     this.bindEvents();
     this.fadeInElements();
   }
@@ -155,7 +154,6 @@ export class HomeSectionComponent implements AfterViewInit, OnDestroy {
 
   public renderFrame = (time: number): void => {
     const elapsedTime = this.clock.getElapsedTime();
-    // this.animationId = requestAnimationFrame(this.renderFrame);
 
     if (this.model3D) {
       const x = Math.sin(elapsedTime * 0.1) * (this.WORLD_WIDTH / 2 - 0.5);

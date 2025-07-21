@@ -8,6 +8,7 @@ import { Component, inject } from '@angular/core';
 })
 export class PlayerSectionComponent {
   private viewportScroller = inject(ViewportScroller);
+
   public onClick(elementId: string): void {
     this.viewportScroller.scrollToAnchor(elementId);
   }
