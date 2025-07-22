@@ -12,7 +12,7 @@ import { RegisterAgentFormComponent } from './components/forms/register-agent-fo
 export class RegisterAgentComponent {
   public isFormValid: boolean = false;
 
-  private router = inject(Router);
+  private readonly router = inject(Router);
 
   onSubmit() {}
 

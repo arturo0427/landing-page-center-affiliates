@@ -11,7 +11,19 @@
     "BTN_AGENT": "I want to be an Agent"
   },
   "PLAYER": {
-    "TITLE": "Jugador"
+    "TITLE": "Jugador",
+    "TITLE_PART1": "Bet and",
+    "TITLE_PART2": "Win",
+    "P1": "We are your trusted site in the world of sports betting.",
+    "P2": "As a market leader, we provide you with all the opportunities and benefits of being our affiliate. Get higher chances of winning with every bet, and as you accumulate more, unlock bonuses and special privileges.",
+    "P3": "Start winning at every step of your exciting journey with us!",
+    "P4": "You might wonder what you need to join—it's easy: fill in your details and you're part of the best sports prediction site.",
+    "STEP1_TITLE": "Request your account",
+    "STEP1_DESC": "Get your username and password to start playing.",
+    "STEP2_TITLE": "Log in and bet",
+    "STEP2_DESC": "Explore Sorti365 and choose your favorite bets.",
+    "STEP3_TITLE": "Receive your winnings",
+    "STEP3_DESC": "Enjoy the rewards waiting for you."
   },
   "BENEFITS": {
     "TITLE": "Benefits",
@@ -49,6 +61,32 @@
       "REGISTER": "Register",
       "MORE_INFO": "More Info",
       "EMAIL_PLACEHOLDER": "email@example.com"
+    },
+    "REGISTER_AGENT": {
+      "NAME": "First Name",
+      "NAME_PLACEHOLDER": "John",
+      "LAST_NAME": "Last Name",
+      "LAST_NAME_PLACEHOLDER": "Doe",
+      "USERNAME": "Username",
+      "USERNAME_PLACEHOLDER": "user123",
+      "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "example@email.com",
+      "PHONE": "Phone",
+      "PHONE_PLACEHOLDER": "+1 1234567890",
+      "REFERRAL_CODE": "Referral Code",
+      "REFERRAL_CODE_PLACEHOLDER": "ABC123",
+      "DATE_OF_BIRTH": "Date of Birth",
+      "DATE_OF_BIRTH_PLACEHOLDER": "Select a date",
+      "COUNTRY": "Country",
+      "COUNTRY_PLACEHOLDER": "USA",
+      "CITY": "City",
+      "CITY_PLACEHOLDER": "New York",
+      "PASSWORD": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••"
     }
+  },
+  "FOOTER": {
+    "ALL_RIGHTS_RESERVED": "All rights reserved",
+    "TERMS_AND_CONDITIONS": "Terms and Conditions"
   }
 }

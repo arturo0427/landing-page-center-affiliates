@@ -2,7 +2,7 @@
   <div class="form-row">
     <div class="form-field">
       <label for="firstName">
-        {{ "PAGES.REGISTER_PLAYER.NAME" | translate }}
+        {{ "PAGES.REGISTER_AGENT.NAME" | translate }}
       </label>
       <input
         id="firstName"
@@ -15,7 +15,7 @@
 
     <div class="form-field">
       <label for="lastName">
-        {{ "PAGES.REGISTER_PLAYER.LAST_NAME" | translate }}
+        {{ "PAGES.REGISTER_AGENT.LAST_NAME" | translate }}
       </label>
       <input
         id="lastName"
@@ -29,7 +29,9 @@
 
   <div class="form-row">
     <div class="form-field">
-      <label for="username">Username</label>
+      <label for="username">
+        {{ "PAGES.REGISTER_AGENT.USERNAME" | translate }}
+      </label>
       <input
         id="username"
         type="text"
@@ -38,22 +40,8 @@
         placeholder="usuario123"
       />
     </div>
-
     <div class="form-field">
-      <label for="email">{{ "PAGES.REGISTER_PLAYER.EMAIL" | translate }}</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        class="input"
-        [placeholder]="'PAGES.REGISTER_PLAYER.EMAIL_PLACEHOLDER' | translate"
-      />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-field">
-      <label for="phone">{{ "PAGES.REGISTER_PLAYER.PHONE" | translate }}</label>
+      <label for="phone">{{ "PAGES.REGISTER_AGENT.PHONE" | translate }}</label>
       <input
         id="phone"
         type="tel"
@@ -62,17 +50,19 @@
         placeholder="+593 987654321"
       />
     </div>
+  </div>
 
+  <div class="form-row">
     <div class="form-field">
-      <label for="referralCode">
-        {{ "PAGES.REGISTER_PLAYER.REFERRAL_CODE" | translate }}
+      <label for="email">
+        {{ "PAGES.REGISTER_AGENT.EMAIL" | translate }}
       </label>
       <input
-        id="referralCode"
-        type="text"
-        formControlName="referralCode"
+        id="email"
+        type="email"
+        formControlName="email"
         class="input"
-        placeholder="ABC123"
+        [placeholder]="'PAGES.REGISTER_AGENT.EMAIL_PLACEHOLDER' | translate"
       />
     </div>
   </div>
@@ -89,31 +79,33 @@
     </div>
 
     <div class="form-field">
-      <label for="country">País</label>
+      <label for="country">
+        {{ "PAGES.REGISTER_AGENT.COUNTRY" | translate }}</label
+      >
       <input
         id="country"
         type="text"
         formControlName="country"
         class="input"
-        placeholder="Ecuador"
+        [placeholder]="'PAGES.REGISTER_AGENT.COUNTRY_PLACEHOLDER' | translate"
       />
     </div>
   </div>
 
   <div class="form-field">
-    <label for="city">Ciudad</label>
+    <label for="city"> {{ "PAGES.REGISTER_AGENT.CITY" | translate }}</label>
     <input
       id="city"
       type="text"
       formControlName="city"
       class="input"
-      placeholder="Quito"
+      [placeholder]="'PAGES.REGISTER_AGENT.CITY_PLACEHOLDER' | translate"
     />
   </div>
 
   <div class="form-field password-field">
     <label for="password">
-      {{ "PAGES.REGISTER_PLAYER.PASSWORD" | translate }}
+      {{ "PAGES.REGISTER_AGENT.PASSWORD" | translate }}
     </label>
     <div class="input-group">
       <input

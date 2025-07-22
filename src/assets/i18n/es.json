@@ -11,7 +11,19 @@
     "BTN_AGENT": "Quiero ser Agente"
   },
   "PLAYER": {
-    "TITLE": "Jugador"
+    "TITLE": "Jugador",
+    "TITLE_PART1": "Apuesta y",
+    "TITLE_PART2": "Gana",
+    "P1": "Somos tu página de confianza en el mundo de las apuestas deportivas.",
+    "P2": "Somos líder en el mercado te proporcionaremos todas las oportunidades y beneficios de ser nuestro afiliado. Obtén probabilidades más altas de ganar en cada jugada, y a medida que acumules apuestas, desbloquearás bonos y privilegios especiales.",
+    "P3": "¡Empieza a ganar con cada paso en tu emocionante viaje con nosotros!",
+    "P4": "Te preguntarás qué necesitas para afiliarte, es fácil: llena tus datos y listo, ya perteneces a la mejor página de pronósticos deportivos.",
+    "STEP1_TITLE": "Solicita tu cuenta",
+    "STEP1_DESC": "Obtén tu usuario y contraseña para comenzar a jugar.",
+    "STEP2_TITLE": "Ingresa y apuesta",
+    "STEP2_DESC": "Explora Sorti365 y elige tus apuestas favoritas.",
+    "STEP3_TITLE": "Recibe tus ganancias",
+    "STEP3_DESC": "Disfruta de las recompensas que te esperan."
   },
   "BENEFITS": {
     "TITLE": "Beneficios",
@@ -49,6 +61,32 @@
       "REGISTER": "Registrarse",
       "MORE_INFO": "Más Información",
       "EMAIL_PLACEHOLDER": "correo@ejemplo.com"
+    },
+    "REGISTER_AGENT": {
+      "NAME": "Nombre",
+      "NAME_PLACEHOLDER": "Juan",
+      "LAST_NAME": "Apellido",
+      "LAST_NAME_PLACEHOLDER": "Pérez",
+      "USERNAME": "Nombre de usuario",
+      "USERNAME_PLACEHOLDER": "usuario123",
+      "EMAIL": "Correo electrónico",
+      "EMAIL_PLACEHOLDER": "ejemplo@correo.com",
+      "PHONE": "Teléfono",
+      "PHONE_PLACEHOLDER": "+593 987654321",
+      "REFERRAL_CODE": "Código de referido",
+      "REFERRAL_CODE_PLACEHOLDER": "ABC123",
+      "DATE_OF_BIRTH": "Fecha de nacimiento",
+      "DATE_OF_BIRTH_PLACEHOLDER": "Selecciona una fecha",
+      "COUNTRY": "País",
+      "COUNTRY_PLACEHOLDER": "Ecuador",
+      "CITY": "Ciudad",
+      "CITY_PLACEHOLDER": "Quito",
+      "PASSWORD": "Contraseña",
+      "PASSWORD_PLACEHOLDER": "••••••••"
     }
+  },
+  "FOOTER": {
+    "ALL_RIGHTS_RESERVED": "Todos los derechos reservados",
+    "TERMS_AND_CONDITIONS": "Términos y Condiciones"
   }
 }

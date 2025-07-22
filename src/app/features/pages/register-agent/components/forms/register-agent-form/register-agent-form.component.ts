@@ -20,7 +20,7 @@ export class RegisterAgentFormComponent {
 
   @Output() formReady = new EventEmitter<FormGroup>();
 
-  private formBuilder = inject(FormBuilder);
+  private readonly formBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
     this.registerAgentForm = this.formBuilder.group({

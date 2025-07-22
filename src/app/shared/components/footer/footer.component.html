@@ -1,25 +1,48 @@
 <footer class="footer-area">
   <div class="container">
     <h3>
-      <a routerLink="/"><span>X</span>avro</a>
+      <a class="text-lowercase" routerLink="/"
+        ><span class="text-uppercase">S</span>orti</a
+      >
     </h3>
     <ul>
-      <li><a href="#" target="_blank" class="fab fa-facebook-f"></a></li>
-      <li><a href="#" target="_blank" class="fab fa-twitter"></a></li>
-      <li><a href="#" target="_blank" class="fab fa-linkedin-in"></a></li>
-      <li><a href="#" target="_blank" class="fab fa-instagram"></a></li>
+      <li>
+        <a
+          aria-label="facebook"
+          href="#"
+          target="_blank"
+          class="fab fa-facebook-f"
+        ></a>
+      </li>
+      <li>
+        <a aria-label="x" href="#" target="_blank" class="fab fa-twitter"></a>
+      </li>
+      <li>
+        <a
+          aria-label="linkedin"
+          href="#"
+          target="_blank"
+          class="fab fa-linkedin-in"
+        ></a>
+      </li>
+      <li>
+        <a
+          aria-label="instagram"
+          href="#"
+          target="_blank"
+          class="fab fa-instagram"
+        ></a>
+      </li>
     </ul>
     <p>
-      © 2025 Sorti - Todos los derechos reservados -
+      © 2025 Sorti - {{ "FOOTER.ALL_RIGHTS_RESERVED" | translate }} -
       <a
         href="https://sortiecuador.com/terminos-condiciones/SortiOficial"
         target="_blank"
-        >Términos y condicines</a
+        >{{ "FOOTER.TERMS_AND_CONDITIONS" | translate }}</a
       >
     </p>
   </div>
 </footer>
-
-<!-- <app-demo-sidebar /> -->
 
 <app-back-to-top />

@@ -20,8 +20,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export function appInitializerFactory(translate: TranslateService) {
   return () => {
-    const lang = localStorage.getItem('lang') || 'en';
-    translate.setDefaultLang('en');
+    const lang = localStorage.getItem('lang') || 'es';
+    translate.setDefaultLang('es');
     return translate.use(lang).toPromise();
   };
 }
