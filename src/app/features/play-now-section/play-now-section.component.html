@@ -1,7 +1,9 @@
 <div id="play-now" class="play-now position-relative">
+  @if (shouldShowPoint) {
   <div #point class="point position-absolute z-2">
     {{ "PLAY_NOW.SPIN" | translate }}
   </div>
+  }
   <div
     #threeDice
     class="three-dice position-absolute top-0 start-0 w-100 h-100 z-0"

@@ -6,8 +6,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AnimationService } from '@core/services/ui/animation.service';
+import { DeviceService } from '@core/services/ui/device.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
+import { Subscription } from 'rxjs';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 @Component({
@@ -17,7 +19,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 })
 export class PlayNowSectionComponent implements AfterViewInit {
   @ViewChild('play-now') playNow!: ElementRef;
-  @ViewChild('point', { static: true }) pointRef!: ElementRef;
+  @ViewChild('point', { static: false }) pointRef!: ElementRef;
   @ViewChild('threeDice', { static: true }) threeDice!: ElementRef;
 
   private scene!: THREE.Scene;
@@ -30,7 +32,10 @@ export class PlayNowSectionComponent implements AfterViewInit {
 
   private diceHeights: number[] = [];
   private diceGroups: THREE.Group[] = [];
+  public shouldShowPoint: boolean = true;
   private progressAnimation: boolean = false;
+
+  private deviceSub?: Subscription;
 
   private readonly diceFaceRotations: any = {
     1: { x: 0, y: 0 },
@@ -47,11 +52,24 @@ export class PlayNowSectionComponent implements AfterViewInit {
   ];
 
   private animationService = inject(AnimationService);
+  private readonly deviceService = inject(DeviceService);
 
   ngAfterViewInit(): void {
+    this.shouldShowPoint = this.deviceService.isDesktop;
+
+    this.deviceSub = this.deviceService.deviceType$.subscribe((type) => {
+      this.shouldShowPoint = type === 'desktop';
+    });
+    // if (this.deviceService.isMobile || this.deviceService.isTablet) {
+    //   this.shouldShowPoint = false;
+    // }
+
     this.initThree();
-    // this.renderFrame();
     this.bindEvents();
+  }
+
+  ngOnDestroy(): void {
+    this.deviceSub?.unsubscribe();
   }
 
   private bindEvents(): void {
@@ -208,6 +226,7 @@ export class PlayNowSectionComponent implements AfterViewInit {
   };
 
   private onClick = (): void => {
+    if (!this.shouldShowPoint) return;
     if (this.progressAnimation) return;
     this.progressAnimation = true;
 
